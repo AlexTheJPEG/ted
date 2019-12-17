@@ -3,4 +3,4 @@ todo.txt
 discord.log
 /.vscode
 settings.json
-cogs/__pycache__
+/cogs/__pycache__
