@@ -35,6 +35,7 @@ class React(commands.Cog):
             poll = await ctx.send(question)
             for emote in self.number_emotes:
                 await poll.add_reaction(emote)
+        # ! This doesn't work for some reason
         except commands.errors.InvalidEndOfQuotedStringError:
             # If there's something after the quotation
             # like "hello"hi

@@ -6,6 +6,7 @@ from discord.ext import commands
 class Rand(commands.Cog):
     def __init__(self, client):
         self.client = client
+        # TODO: Move 8-ball responses to text file
         self.eb_responses_positive = ["Yes", "As I see it, yes", "It is certain", "It is decidedly so",
                                       "Without a doubt", "Definitely", "You may rely on it", "Most likely",
                                       "Outlook good", "Signs point to yes", "Probably", "Affirmative", "Absolutely",

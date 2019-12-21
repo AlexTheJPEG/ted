@@ -9,6 +9,8 @@ class Help(commands.Cog):
     @commands.command()
     async def help(self, ctx, command=""):
         command_names = [command.name for command in self.client.commands]
+
+        # TODO: Make individual help texts for commands
         if command not in command_names:
             author = ctx.message.author
             embed = discord.Embed(colour=13399553)

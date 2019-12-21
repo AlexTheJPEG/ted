@@ -34,6 +34,8 @@ class Games(commands.Cog):
             else:
                 await ctx.send(f"{mention} It's a draw.")
 
+    # TODO: Bring back guessing game
+
 
 def setup(client):
     client.add_cog(Games(client))
