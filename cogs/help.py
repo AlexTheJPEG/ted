@@ -22,6 +22,7 @@ class Help(commands.Cog):
             embed.add_field(name="PING", value="`ping`")
             embed.add_field(name="RANDOM", value="`8ball` `roll` `coin` `lottery`")
             embed.add_field(name="REACTIONS", value="`yesno` `numbers`")
+            embed.add_field(name="GAMES", value="`rps` `guessinggame`")
 
             await author.send(content=f"""To get help on a specific command, type `{ctx.prefix}help (command)`
 To bring up this message again, type `{ctx.prefix}help`!""", embed=embed)
