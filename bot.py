@@ -29,10 +29,8 @@ _respond_to_bots = settings['respond_to_bots']
 client = commands.Bot(command_prefix=_prefix)
 
 # Ready messages and status change messages
-_ready = ["Ted is connected!", "INIT: TED.BOT", "Ted's body is ready!", "Ted is ready to roll!", "Ted is now running.",
-          "Now loading Ted...", "Ted is now formatting C:\\ drive...Just kidding!", "Ted is offlinen't!",
-          "All systems go.", "Ted is now up and running.", 'Ted: "Let\'s do this!"', "Ted has entered the chat",
-          "It's a bird! It's a plane! Wait, no it's just Ted."]
+with open("ready_responses.txt") as file:
+    _ready = [response.strip() for response in file.readlines()]
 _status = cycle([f"Try {_prefix}help!", "with 1s and 0s"])
 
 # Start status changing loop and print ready message
