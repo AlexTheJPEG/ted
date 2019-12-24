@@ -34,7 +34,7 @@ class Rand(commands.Cog):
         await ctx.send(f"{mention} | :8ball: | {random.choice(self.eb_responses)}")
 
     @commands.command(aliases=["dice"])
-    async def roll(self, ctx, d: str):
+    async def roll(self, ctx, d="1d6"):
         mention = ctx.message.author.mention
         dice = d.partition('d')
         if dice[1] == "d":
