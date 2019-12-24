@@ -1,28 +1,21 @@
 import discord
 import random
+import os
 from discord.ext import commands
 
 
 class Rand(commands.Cog):
     def __init__(self, client):
         self.client = client
-        # TODO: Move 8-ball responses to text file
-        self.eb_responses_positive = ["Yes", "As I see it, yes", "It is certain", "It is decidedly so",
-                                      "Without a doubt", "Definitely", "You may rely on it", "Most likely",
-                                      "Outlook good", "Signs point to yes", "Probably", "Affirmative", "Absolutely",
-                                      "Unfortunately, yes", "Fortunately, yes", "I'm going for yes", ":100: :ok_hand:",
-                                      "Yep", "Yes, yes, yes!!"]
-        self.eb_responses_negative = ["No", "Probably not", "Don't count on it", "My reply is no", "My sources say no",
-                                      "Outlook not so good", "Very doubtful", "I don't think so", "Signs point to no",
-                                      "Negative", "Absolutely not", "Unfortunately, no", "Fortunately, no",
-                                      "Not happening", "Leaning towards no", "Definitely not", "Not a chance",
-                                      "That's a no from me chief", "ERROR 403: Forbidden"]
-        self.eb_responses_uncertain = ["Maybe", "Reply hazy, try again", "Ask again later", "Better not tell you now",
-                                       "Cannot predict now", "Concentrate and ask again", "I don't know", "Who knows?",
-                                       "Uncertain at the moment", "Whatever you think the answer should be", "Perhaps",
-                                       "Can't tell you just yet", "I'm not sure", "It depends on the circumstances",
-                                       "Try asking another time", "It's up to you to decide that", "Too lazy to answer",
-                                       "ERROR 404: Answer not found", "Huh?"]
+
+        eb_responses_path = os.getcwd() + "/cogs/8ball/"
+        eb_path_positive = eb_responses_path + "positive.txt"
+        eb_path_negative = eb_responses_path + "negative.txt"
+        eb_path_uncertain = eb_responses_path + "uncertain.txt"
+        with open(eb_path_positive) as positive, open(eb_path_negative) as negative, open(eb_path_uncertain) as uncertain:
+            self.eb_responses_positive = [response.strip() for response in positive.readlines()]
+            self.eb_responses_negative = [response.strip() for response in negative.readlines()]
+            self.eb_responses_uncertain = [response.strip() for response in uncertain.readlines()]
         if not (len(self.eb_responses_positive) == len(self.eb_responses_negative) == len(self.eb_responses_uncertain)):
             print("""[WARNING] The positive, negative, and uncertain responses for eightball don't have the same amount of responses.""")
         self.eb_responses = self.eb_responses_positive + self.eb_responses_negative + self.eb_responses_uncertain
