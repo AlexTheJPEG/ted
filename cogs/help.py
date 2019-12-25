@@ -13,12 +13,10 @@ class Help(commands.Cog):
         # TODO: Make individual help texts for commands
         if command != "" and command not in command_names:
             await ctx.send(f"That's not a valid command! Type `{ctx.prefix}help` for a list of commands to get help on.")
-        elif command == "":
+        elif command == "" or command in "help":
             author = ctx.message.author
             embed = discord.Embed(colour=13399553)
-
             embed.set_image(url="https://cdn.discordapp.com/avatars/457280200078524421/a66cc42e800589c1296fcc2665270e62.png")
-
             embed.set_author(name="Ted's List of Commands", url="https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
             embed.add_field(name="PING", value="`ping`")
