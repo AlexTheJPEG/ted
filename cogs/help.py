@@ -32,9 +32,9 @@ class Help(commands.Cog):
             await author.send(content=f"""To get help on a specific command, type `{ctx.prefix}help (command)`
 To bring up this message again, type `{ctx.prefix}help`!""", embed=embed)
         else:
-            embed.set_author(name=f"Ted's List of Commands >>> {command}", url="https://www.youtube.com/watch?v=sMKoNBRZM1M")
+            embed.set_author(name=f"Ted's List of Commands >>> {command}", url=self.help_texts[command]['url'])
 
-            embed.add_field(name="USAGE", value=self.help_texts[command]["usage"])
+            embed.add_field(name="USAGE", value=f"{ctx.prefix}{self.help_texts[command]['usage']}")
             embed.add_field(name="ARGUMENTS", value=self.help_texts[command]["arguments"])
             embed.add_field(name="WHAT IT DOES", value=self.help_texts[command]["what-it-does"])
 

@@ -1,0 +1,32 @@
+{
+  "ping": {
+    "url": "https://www.youtube.com/watch?v=sMKoNBRZM1M",
+    "usage": "ping",
+    "arguments": "(none)",
+    "what-it-does": "Tests how long it takes me to connect to the Discord servers, measured in milliseconds. The lower the value, the better the connection is."
+  },
+  "8ball": {
+    "url": "https://youtu.be/2UxyQPqGy90?t=103",
+    "usage": "8ball `question`",
+    "arguments": "`question`: Your query for the 8-ball",
+    "what-it-does": "Ask the magic 8-ball a question (preferably a yes or no question), and it will answer!"
+  },
+  "roll": {
+    "url": "https://youtu.be/B25qTaJhERc?t=97",
+    "usage": "roll `dice`",
+    "arguments": "`dice`: The dice in dice notation. Default is 1d6",
+    "what-it-does": "Roll a die using dice notation.\n\n*Dice notation is written by XdY, where X is the number of dice to roll and Y is the number of sides on each die, so 3d10 means \"roll 3 10-sided dice.\"*"
+  },
+  "coin": {
+    "url": "https://www.youtube.com/watch?v=iZCEINEyhdM",
+    "usage": "coin",
+    "arguments": "(none)",
+    "what-it-does": "Flip a coin. It will land on heads or tails."
+  },
+  "lottery": {
+    "url": "https://www.youtube.com/watch?v=9PSWTDhHGt4",
+    "usage": "lottery `game`",
+    "arguments": "`game`: The lottery game to draw numbers for. Supports Powerball, Mega Millions, and EuroMillions.",
+    "what-it-does": "Generate lottery numbers. Maybe I'll create the jackpot combination!\n\nDISCLAIMER: Ted is not responsible for neither addiction to gambling or loss of money from this command."
+  }
+}
