@@ -26,7 +26,7 @@ class Rand(commands.Cog):
         # Pick a random response
         await ctx.send(f"{mention} | :8ball: | {random.choice(self.eb_responses)}")
 
-    @commands.command(aliases=["dice"])
+    @commands.command()
     async def roll(self, ctx, d="1d6"):
         mention = ctx.message.author.mention
         dice = d.partition('d')
