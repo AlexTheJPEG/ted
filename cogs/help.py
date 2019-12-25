@@ -11,7 +11,9 @@ class Help(commands.Cog):
         command_names = [command.name for command in self.client.commands]
 
         # TODO: Make individual help texts for commands
-        if command not in command_names:
+        if command != "" and command not in command_names:
+            await ctx.send(f"That's not a valid command! Type `{ctx.prefix}help` for a list of commands to get help on.")
+        elif command == "":
             author = ctx.message.author
             embed = discord.Embed(colour=13399553)
 
