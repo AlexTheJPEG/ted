@@ -22,13 +22,13 @@ class Rand(commands.Cog):
 
     @commands.command(name="8ball")
     async def eightball(self, ctx, question: str):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         # Pick a random response
         await ctx.send(f"{mention} | :8ball: | {random.choice(self.eb_responses)}")
 
     @commands.command()
     async def roll(self, ctx, d="1d6"):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         dice = d.partition('d')
         if dice[1] == "d":
             try:
@@ -38,7 +38,7 @@ class Rand(commands.Cog):
                 # Generate rolls
                 rolls = [random.randint(1, sides) for _ in range(number)]
                 try:
-                    mention = ctx.message.author.mention
+                    mention = ctx.author.mention
                     await ctx.send(f""":game_die: {mention} rolled a {''.join(d)} and got:
 ```{', '.join(list(map(str, rolls)))}```
 ```Max:\t\t{max(rolls)}
@@ -56,7 +56,7 @@ Average:\t{sum(rolls) / len(rolls)}```""")
     @commands.command()
     async def coin(self, ctx):
         # Heads or tails. That's it.
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         c = random.randint(0, 1)
         if bool(c):
             await ctx.send(f"{mention} It's heads.")
@@ -65,7 +65,7 @@ Average:\t{sum(rolls) / len(rolls)}```""")
 
     @commands.command()
     async def lottery(self, ctx, game):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         if game == "powerball":
             # (USA) Powerball
             # Five numbers (1-69) + one powerball number (1-26)

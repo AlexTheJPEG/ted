@@ -19,7 +19,7 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def whendidijoin(self, ctx):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         if ctx.guild is None:
             await ctx.send("It seems you are not using this command on a server. Go to a server and use this command again!")
         else:
@@ -32,7 +32,7 @@ class Fun(commands.Cog):
 
     @ground.error
     async def ground_error(self, ctx, error):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         if isinstance(error, commands.errors.MissingRequiredArgument):
             await ctx.send(self.create_ground_string(mention, "not pass in the correct amount of arguments"))
 

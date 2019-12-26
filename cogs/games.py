@@ -15,7 +15,7 @@ class Games(commands.Cog):
 
     @commands.command()
     async def rps(self, ctx, move=""):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         if move.lower() not in self.rps_moves.keys():
             await ctx.send(f"{mention} That's not a valid move!")
         else:
@@ -36,7 +36,7 @@ class Games(commands.Cog):
 
     @commands.command()
     async def guessinggame(self, ctx, highest=100):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         play = True
 
         # Check number for validity

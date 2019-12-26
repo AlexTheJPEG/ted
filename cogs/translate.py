@@ -12,7 +12,7 @@ class Translate(commands.Cog):
 
     @commands.command()
     async def translate(self, ctx, src, des, phrase):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         if src == "detect" and des in self.codes:
             # Automatically detect the language
             await ctx.send(f"""{mention} Translation to {des}:
@@ -30,7 +30,7 @@ If the phrase is multiple words, surround it in " quotes \"""")
 
     @commands.command()
     async def badtranslate(self, ctx, src, times: int, phrase):
-        mention = ctx.message.author.mention
+        mention = ctx.author.mention
         if src in self.codes:
             if times <= 50:
                 msg = await ctx.send(f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have.""")
