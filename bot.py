@@ -42,12 +42,13 @@ async def on_ready():
 # Erorr handling
 @client.event
 async def on_command_error(ctx, error):
+    mention = ctx.author.mention
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send(f"That's not a valid command! Type `{_prefix}help` for a list of commands.")
+        await ctx.send(f"{mention} That's not a valid command! Type `{_prefix}help` for a list of commands.")
     elif isinstance(error, commands.errors.InvalidEndOfQuotedStringError):
-        await ctx.send("Make sure your entire question is in quotes and there's nothing after the quotes!")
+        await ctx.send(f"{mention} Make sure your entire question is in quotes and there's nothing after the quotes!")
     elif isinstance(error, commands.errors.ExpectedClosingQuoteError):
-        await ctx.send("I only see the starting quote...are you sure you put an ending quote?")
+        await ctx.send(f"{mention} I only see the starting quote...are you sure you put an ending quote?")
 
 
 # Change status from trying the help message to a funny message
