@@ -1,10 +1,14 @@
 from discord.ext import commands
+import os
 import random
 
 
 class Fun(commands.Cog):
     def __init__(self, client):
         self.client = client
+        slap_texts_path = os.getcwd() + "/cogs/slap/slaps.txt"
+        with open(slap_texts_path) as slaps:
+            self.slap_texts = [slap.strip() for slap in slaps.readlines()]
 
     def create_ground_string(self, groundee, reason):
         time = random.randint(10 ** 50, 99 ** 50)
@@ -27,8 +31,11 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def ground(self, ctx, groundee, reason):
-
         await ctx.send(self.create_ground_string(groundee, reason))
+
+    @commands.command()
+    async def slap(self, ctx, slappee):
+        await ctx.send(random.choice(self.slap_texts).format(slappee))
 
     @ground.error
     async def ground_error(self, ctx, error):
