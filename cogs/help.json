@@ -1,6 +1,6 @@
 {
   "ping": {
-    "url": "https://www.youtube.com/watch?v=sMKoNBRZM1M",
+    "url": "https://youtu.besMKoNBRZM1M",
     "usage": "ping",
     "arguments": "(none)",
     "what-it-does": "Tests how long it takes me to connect to the Discord servers, measured in milliseconds. The lower the value, the better the connection is."
@@ -18,15 +18,27 @@
     "what-it-does": "Roll a die using dice notation.\n\n*Dice notation is written by XdY, where X is the number of dice to roll and Y is the number of sides on each die, so 3d10 means \"roll 3 10-sided dice.\"*"
   },
   "coin": {
-    "url": "https://www.youtube.com/watch?v=iZCEINEyhdM",
+    "url": "https://youtu.beiZCEINEyhdM",
     "usage": "coin",
     "arguments": "(none)",
     "what-it-does": "Flip a coin. It will land on heads or tails."
   },
   "lottery": {
-    "url": "https://www.youtube.com/watch?v=9PSWTDhHGt4",
+    "url": "https://youtu.be9PSWTDhHGt4",
     "usage": "lottery `game`",
     "arguments": "`game`: The lottery game to draw numbers for. Supports Powerball, Mega Millions, and EuroMillions.",
     "what-it-does": "Generate lottery numbers. Maybe I'll create the jackpot combination!\n\nDISCLAIMER: Ted is not responsible for neither addiction to gambling or loss of money from this command."
+  },
+  "yesno": {
+    "url": "https://youtu.be/0v7Od6eZb6E",
+    "usage": "yesno `question`",
+    "arguments": "`question`: The yes/no question you want to ask. If it's multiple words, surround it in quotes",
+    "what-it-does": "I'll create a poll where people can react to the question with :thumbs_up: or :thumbs_down:! I'll try to delete your message containing the command so it looks cleaner, but if I can't, I'll just ignore it."
+  },
+  "numbers": {
+    "url": "https://youtu.be/2OAvXJraqJM?t=678",
+    "usage": "numbers `question`",
+    "arguments": "`question`: The question you want to ask. If it's multiple words, surround it in quotes",
+    "what-it-does": "I'll create a poll where people can react to the question from :one: to :keycap_ten:! It can be used to ask an \"On a scale of 1 to 10...\" question, or it can be a poll where people choose from numbered choices."
   }
 }
