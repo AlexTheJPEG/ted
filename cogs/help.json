@@ -33,30 +33,30 @@
     "url": "https://youtu.be/0v7Od6eZb6E",
     "usage": "yesno `question`",
     "arguments": "`question`: The yes/no question you want to ask. If it's multiple words, surround it in quotes",
-    "what-it-does": "I'll create a poll where people can react to the question with :thumbs_up: or :thumbs_down:! I'll try to delete your message containing the command so it looks cleaner, but if I can't, I'll just ignore it."
+    "what-it-does": "I'll create a poll where people can react to the question with :thumbs_up: or :thumbs_down:!\nI'll try to delete your message containing the command so it looks cleaner, but if I can't, I'll just ignore it."
   },
   "numbers": {
     "url": "https://youtu.be/2OAvXJraqJM?t=678",
     "usage": "numbers `question`",
     "arguments": "`question`: The question you want to ask. If it's multiple words, surround it in quotes",
-    "what-it-does": "I'll create a poll where people can react to the question from :one: to :keycap_ten:! It can be used to ask an \"On a scale of 1 to 10...\" question, or it can be a poll where people choose from numbered choices."
+    "what-it-does": "I'll create a poll where people can react to the question from :one: to :keycap_ten:!\nIt can be used to ask an \"On a scale of 1 to 10...\" question, or it can be a poll where people choose from numbered choices."
   },
   "translate": {
     "url": "https://youtu.be/3-rfBsWmo0M",
     "usage": "translate `src` `des` `phrase`",
-    "arguments": "`src`: The source language. Needs to be a language code. You can also use \"detect\" for me to automatically detect what language you're using\n`des`: The language to be translated to. Needs to be a language code\n`phrase`: The phrase to translate. Should be in the language described in `src`. If it's multiple words, surround it in quotes",
-    "what-it-does": "Translate something from one language to another using the Google Translate API! Be sure to use language codes, which can be accessed using the `langcodes` command."
+    "arguments": "`src`: The source language. Needs to be a language code. You can also use \"detect\" for me to automatically detect what language you're using\n\n`des`: The language to be translated to. Needs to be a language code\n\nnnnnnnnnn`phrase`: The phrase to translate. Should be in the language described in `src`. If it's multiple words, surround it in quotes",
+    "what-it-does": "Translate something from one language to another using the Google Translate API!\nBe sure to use language codes, which can be accessed using the `langcodes` command."
   },
   "badtranslate": {
     "url": "https://youtu.be/jJADiOOXFgw",
     "usage": "badtranslate `src` `times` `phrase`",
     "arguments": "`src`: The source language. Needs to be a language code. You can also use \"detect\" for me to automatically detect what language you're using\n`times`: The amount of languages to go through\n`phrase`: The phrase to translate. Should be in the language described in `src`. If it's multiple words, surround it in quotes",
-    "what-it-does": "Translate a phrase through multiple languages in a chain to see how bad it gets! Be sure to use language codes, which can be accessed using the `langcodes` command."
+    "what-it-does": "Translate a phrase through multiple languages in a chain to see how bad it gets!\nBe sure to use language codes, which can be accessed using the `langcodes` command."
   },
   "langcodes": {
     "url": "https://youtu.be/dQw4w9WgXcQ",
     "usage": "langcodes",
     "arguments": "(none)",
-    "what-it-does": "I'll give you a list of every language code you can use for the `translate` and `badtranslate` commands. Most of them are 2-3 characters long, and each corresponds to a different language."
+    "what-it-does": "I'll give you a list of every language code you can use for the `translate` and `badtranslate` commands.\nMost of them are 2-3 characters long, and each corresponds to a different language."
   }
 }
