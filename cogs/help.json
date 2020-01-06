@@ -1,0 +1,62 @@
+{
+  "ping": {
+    "url": "https://youtu.besMKoNBRZM1M",
+    "usage": "ping",
+    "arguments": "(none)",
+    "what-it-does": "Tests how long it takes me to connect to the Discord servers, measured in milliseconds. The lower the value, the better the connection is."
+  },
+  "8ball": {
+    "url": "https://youtu.be/2UxyQPqGy90?t=103",
+    "usage": "8ball `question`",
+    "arguments": "`question`: Your query for the 8-ball",
+    "what-it-does": "Ask the magic 8-ball a question (preferably a yes or no question), and it will answer!"
+  },
+  "roll": {
+    "url": "https://youtu.be/B25qTaJhERc?t=97",
+    "usage": "roll `dice`",
+    "arguments": "`dice`: The dice in dice notation. Default is 1d6",
+    "what-it-does": "Roll a die using dice notation.\n\n*Dice notation is written by XdY, where X is the number of dice to roll and Y is the number of sides on each die, so 3d10 means \"roll 3 10-sided dice.\"*"
+  },
+  "coin": {
+    "url": "https://youtu.beiZCEINEyhdM",
+    "usage": "coin",
+    "arguments": "(none)",
+    "what-it-does": "Flip a coin. It will land on heads or tails."
+  },
+  "lottery": {
+    "url": "https://youtu.be9PSWTDhHGt4",
+    "usage": "lottery `game`",
+    "arguments": "`game`: The lottery game to draw numbers for. Supports Powerball, Mega Millions, and EuroMillions.",
+    "what-it-does": "Generate lottery numbers. Maybe I'll create the jackpot combination!\n\nDISCLAIMER: Ted is not responsible for neither addiction to gambling or loss of money from this command."
+  },
+  "yesno": {
+    "url": "https://youtu.be/0v7Od6eZb6E",
+    "usage": "yesno `question`",
+    "arguments": "`question`: The yes/no question you want to ask. If it's multiple words, surround it in quotes",
+    "what-it-does": "I'll create a poll where people can react to the question with :thumbs_up: or :thumbs_down:!\nI'll try to delete your message containing the command so it looks cleaner, but if I can't, I'll just ignore it."
+  },
+  "numbers": {
+    "url": "https://youtu.be/2OAvXJraqJM?t=678",
+    "usage": "numbers `question`",
+    "arguments": "`question`: The question you want to ask. If it's multiple words, surround it in quotes",
+    "what-it-does": "I'll create a poll where people can react to the question from :one: to :keycap_ten:!\nIt can be used to ask an \"On a scale of 1 to 10...\" question, or it can be a poll where people choose from numbered choices."
+  },
+  "translate": {
+    "url": "https://youtu.be/3-rfBsWmo0M",
+    "usage": "translate `src` `des` `phrase`",
+    "arguments": "`src`: The source language. Needs to be a language code. You can also use \"detect\" for me to automatically detect what language you're using\n\n`des`: The language to be translated to. Needs to be a language code\n\nnnnnnnnnn`phrase`: The phrase to translate. Should be in the language described in `src`. If it's multiple words, surround it in quotes",
+    "what-it-does": "Translate something from one language to another using the Google Translate API!\nBe sure to use language codes, which can be accessed using the `langcodes` command."
+  },
+  "badtranslate": {
+    "url": "https://youtu.be/jJADiOOXFgw",
+    "usage": "badtranslate `src` `times` `phrase`",
+    "arguments": "`src`: The source language. Needs to be a language code. You can also use \"detect\" for me to automatically detect what language you're using\n`times`: The amount of languages to go through\n`phrase`: The phrase to translate. Should be in the language described in `src`. If it's multiple words, surround it in quotes",
+    "what-it-does": "Translate a phrase through multiple languages in a chain to see how bad it gets!\nBe sure to use language codes, which can be accessed using the `langcodes` command."
+  },
+  "langcodes": {
+    "url": "https://youtu.be/dQw4w9WgXcQ",
+    "usage": "langcodes",
+    "arguments": "(none)",
+    "what-it-does": "I'll give you a list of every language code you can use for the `translate` and `badtranslate` commands.\nMost of them are 2-3 characters long, and each corresponds to a different language."
+  }
+}
