@@ -9,7 +9,9 @@ class Ping(commands.Cog):
     async def ping(self, ctx):
         # ? Is this accurate?
         mention = ctx.author.mention
-        await ctx.send(f"{mention} Pong! :ping_pong: (**{round(self.client.latency * 1000, 1)}ms**)")
+        await ctx.send(
+            f"{mention} Pong! :ping_pong: (**{round(self.client.latency * 1000, 1)}ms**)"
+        )
 
 
 def setup(client):

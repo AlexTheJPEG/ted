@@ -14,7 +14,7 @@ class Fun(commands.Cog):
         time = random.randint(10 ** 50, 99 ** 50)
         oh = "OH" * random.randint(15, 30)
         grounded = ("GROUNDED " * random.randint(7, 15)).strip()
-        time_unit = random.choice(['YEARS', 'CENTURIES', 'EONS', 'ETERNITIES'])
+        time_unit = random.choice(["YEARS", "CENTURIES", "EONS", "ETERNITIES"])
         return f"{oh} {groundee.upper()} HOW DARE YOU {reason.upper()}!!! THAT'S IT. YOU ARE {grounded} FOR {time} {time_unit}!!!!!!!!!!"
 
     @commands.command()
@@ -25,9 +25,13 @@ class Fun(commands.Cog):
     async def whendidijoin(self, ctx):
         mention = ctx.author.mention
         if ctx.guild is None:
-            await ctx.send("It seems you are not using this command on a server. Go to a server and use this command again!")
+            await ctx.send(
+                "It seems you are not using this command on a server. Go to a server and use this command again!"
+            )
         else:
-            await ctx.send(f"{mention} Your very first time joining **{ctx.guild.name}** was on {ctx.author.joined_at}!")
+            await ctx.send(
+                f"{mention} Your very first time joining **{ctx.guild.name}** was on {ctx.author.joined_at}!"
+            )
 
     @commands.command()
     async def ground(self, ctx, groundee, reason):
@@ -41,7 +45,11 @@ class Fun(commands.Cog):
     async def ground_error(self, ctx, error):
         mention = ctx.author.mention
         if isinstance(error, commands.errors.MissingRequiredArgument):
-            await ctx.send(self.create_ground_string(mention, "not pass in the correct amount of arguments"))
+            await ctx.send(
+                self.create_ground_string(
+                    mention, "not pass in the correct amount of arguments"
+                )
+            )
 
 
 def setup(client):
