@@ -1,6 +1,6 @@
 {
   "ping": {
-    "url": "https://youtu.besMKoNBRZM1M",
+    "url": "https://youtu.be/sMKoNBRZM1M",
     "usage": "ping",
     "arguments": "(none)",
     "what-it-does": "Tests how long it takes me to connect to the Discord servers, measured in milliseconds. The lower the value, the better the connection is."
@@ -18,13 +18,13 @@
     "what-it-does": "Roll a die using dice notation.\n\n*Dice notation is written by XdY, where X is the number of dice to roll and Y is the number of sides on each die, so 3d10 means \"roll 3 10-sided dice.\"*"
   },
   "coin": {
-    "url": "https://youtu.beiZCEINEyhdM",
+    "url": "https://youtu.be/iZCEINEyhdM",
     "usage": "coin",
     "arguments": "(none)",
     "what-it-does": "Flip a coin. It will land on heads or tails."
   },
   "lottery": {
-    "url": "https://youtu.be9PSWTDhHGt4",
+    "url": "https://youtu.be/9PSWTDhHGt4",
     "usage": "lottery `game`",
     "arguments": "`game`: The lottery game to draw numbers for. Supports Powerball, Mega Millions, and EuroMillions.",
     "what-it-does": "Generate lottery numbers. Maybe I'll create the jackpot combination!\n\nDISCLAIMER: Ted is not responsible for neither addiction to gambling or loss of money from this command."
@@ -44,7 +44,7 @@
   "translate": {
     "url": "https://youtu.be/3-rfBsWmo0M",
     "usage": "translate `src` `des` `phrase`",
-    "arguments": "`src`: The source language. Needs to be a language code. You can also use \"detect\" for me to automatically detect what language you're using\n\n`des`: The language to be translated to. Needs to be a language code\n\nnnnnnnnnn`phrase`: The phrase to translate. Should be in the language described in `src`. If it's multiple words, surround it in quotes",
+    "arguments": "`src`: The source language. Needs to be a language code. You can also use \"detect\" for me to automatically detect what language you're using\n`des`: The language to be translated to. Needs to be a language code\n`phrase`: The phrase to translate. Should be in the language described in `src`. If it's multiple words, surround it in quotes",
     "what-it-does": "Translate something from one language to another using the Google Translate API!\nBe sure to use language codes, which can be accessed using the `langcodes` command."
   },
   "badtranslate": {
@@ -58,5 +58,29 @@
     "usage": "langcodes",
     "arguments": "(none)",
     "what-it-does": "I'll give you a list of every language code you can use for the `translate` and `badtranslate` commands.\nMost of them are 2-3 characters long, and each corresponds to a different language."
+  },
+  "thegame": {
+    "url": "https://youtu.be/mxIL4thb3NA",
+    "usage": "thegame",
+    "arguments": "(none)",
+    "what-it-does": "You just lost The Game. But at least make others lose it with this command. See this Wikipedia article about The Game: https://en.wikipedia.org/wiki/The_Game_(mind_game)"
+  },
+  "whendidijoin": {
+    "url": "https://youtu.be/dQw4w9WgXcQ",
+    "usage": "whendidijoin",
+    "arguments": "(none)",
+    "what-it-does": "Ever wanted to find the very first time you joined a server? Use this command and be surprised at how long you've been spending time with your fellow members."
+  },
+  "ground": {
+    "url": "https://youtu.be/KUj-SDEcBbE?t=397",
+    "usage": "ground `groundee` `reason`",
+    "arguments": "`groundee`: The person you want to punish.\n`reason`: The reason you are grounding them.",
+    "what-it-does": "Someone must have been a very bad boy/girl. You must ground them accordingly with this command. Just...make sure to use the command correctly or things might turn out a little different for you..."
+  },
+  "slap": {
+    "url": "https://youtu.be/hHZvUeAdzeI?t=33",
+    "usage": "slap `slappee`",
+    "arguments": "`slappee`: The person you want to slap.",
+    "what-it-does": "Someone must have said something really stupid. You must slap them to let them know with this command. Watch out, though, because many slaps can backfire..."
   }
 }

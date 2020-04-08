@@ -39,6 +39,9 @@ class Help(commands.Cog):
             embed.add_field(
                 name="TRANSLATE", value="`langcodes` `translate` `badtranslate`"
             )
+            embed.add_field(
+                name="FUN", value="`thegame` `whendidijoin` `ground` `slap`"
+            )
 
             await author.send(
                 content=f"""To get help on a specific command, type `{ctx.prefix}help (command)`
