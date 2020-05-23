@@ -49,9 +49,7 @@ class Games(commands.Cog):
 Type `yes` to confirm or anything else to cancel."""
                 )
                 yn = await self.client.wait_for("message")
-                if yn.content.lower() == "yes":
-                    pass
-                else:
+                if yn.content.lower() != "yes":
                     await ctx.send(f"{mention} Your game was cancelled.")
                     play = False
         else:

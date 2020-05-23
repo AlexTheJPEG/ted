@@ -36,49 +36,43 @@ If the phrase is multiple words, surround it in " quotes \""""
 
     @commands.command()
     async def badtranslate(self, ctx, src, times: int, phrase):
-        mention = ctx.author.mention
-        if src in self.codes:
-            if times <= 50:
-                msg = await ctx.send(
-                    f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have."""
-                )
+        if src in self.codes and times <= 50:
+            mention = ctx.author.mention
+            msg = await ctx.send(
+                f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have."""
+            )
 
-                translated_phrase = phrase
+            translated_phrase = phrase
 
-                used_languages = self.codes
-                random.shuffle(used_languages)
-                used_languages = used_languages[:times]
+            used_languages = self.codes
+            random.shuffle(used_languages)
+            used_languages = used_languages[:times]
 
-                language_chain = " -> ".join(used_languages)
+            language_chain = " -> ".join(used_languages)
 
-                current_src = src
+            current_src = src
 
-                for index, language in enumerate(used_languages):
-                    translated_phrase = self.translator.translate(
-                        translated_phrase, src=current_src, dest=language
-                    ).text
+            for index, language in enumerate(used_languages):
+                translated_phrase = self.translator.translate(translated_phrase, src=current_src, dest=language).text
 
-                    current_src = language
+                current_src = language
 
-                    if (index + 1) % 5 == 0:
-                        # To workaround edit cooldown
-                        await msg.edit(
-                            content=f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have. ({index + 1}/{times} complete)"""
-                        )
+                if (index + 1) % 5 == 0:
+                    # To workaround edit cooldown
+                    await msg.edit(
+                        content=f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have. ({index + 1}/{times} complete)"""
+                    )
 
-                # Just to be safe
-                await msg.edit(
-                    content=f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have. ({times}/{times} complete)"""
-                )
+            # Just to be safe
+            await msg.edit(
+                content=f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have. ({times}/{times} complete)"""
+            )
 
-                translated_phrase = self.translator.translate(
-                    translated_phrase, src=current_src, dest=src
-                ).text
-                await ctx.send(
-                    f"""{mention} Translating from {src} -> {language_chain} -> {src} gives us:
+            translated_phrase = self.translator.translate(translated_phrase, src=current_src, dest=src).text
 
-{translated_phrase}"""
-                )
+            await ctx.send(f"""{mention} Translating from {src} -> {language_chain} -> {src} gives us:
+
+{translated_phrase}""")
 
     @commands.command()
     async def langcodes(self, ctx):

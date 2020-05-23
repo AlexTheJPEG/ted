@@ -43,8 +43,8 @@ class Fun(commands.Cog):
 
     @ground.error
     async def ground_error(self, ctx, error):
-        mention = ctx.author.mention
         if isinstance(error, commands.errors.MissingRequiredArgument):
+            mention = ctx.author.mention
             await ctx.send(
                 self.create_ground_string(
                     mention, "not pass in the correct amount of arguments"
