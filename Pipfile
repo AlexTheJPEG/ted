@@ -9,5 +9,8 @@ verify_ssl = true
 discord-py = "*"
 googletrans = "*"
 
+[scripts]
+ted = "python bot.py"
+
 [requires]
 python_version = "3.8"
