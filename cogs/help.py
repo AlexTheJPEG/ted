@@ -1,6 +1,7 @@
-import discord
 import json
 import os
+
+import discord
 from discord.ext import commands
 
 
@@ -18,13 +19,14 @@ class Help(commands.Cog):
         author = ctx.message.author
         embed = discord.Embed(colour=13399553)
         embed.set_image(
-            url="https://cdn.discordapp.com/avatars/457280200078524421/a66cc42e800589c1296fcc2665270e62.png"
+            url="https://cdn.discordapp.com/avatars/457280200078524421/"
+            "a66cc42e800589c1296fcc2665270e62.png"
         )
 
-        # TODO: Make individual help texts for commands
         if command != "" and command not in command_names:
             await ctx.send(
-                f"That's not a valid command! Type `{ctx.prefix}help` for a list of commands to get help on."
+                "That's not a valid command! "
+                f"Type `{ctx.prefix}help` for a list of commands to get help on."
             )
         elif command == "" or command in "help":
             embed.set_author(
@@ -65,7 +67,8 @@ To bring up this message again, type `{ctx.prefix}help`!""",
             )
 
             await author.send(
-                content=f"""To bring up this message again, type `{ctx.prefix}help {command}`!""",
+                content="To bring up this message again, "
+                f"type `{ctx.prefix}help {command}`!",
                 embed=embed,
             )
 

@@ -1,6 +1,7 @@
-import discord
-import random
 import os
+import random
+
+import discord
 from discord.ext import commands
 
 
@@ -30,7 +31,8 @@ class Rand(commands.Cog):
             == len(self.eb_responses_uncertain)
         ):
             print(
-                """[WARNING] The positive, negative, and uncertain responses for eightball don't have the same amount of responses."""
+                "[WARNING] The positive, negative, and uncertain responses for "
+                "eightball don't have the same amount of responses."
             )
         self.eb_responses = (
             self.eb_responses_positive
@@ -68,7 +70,8 @@ Average:\t{sum(rolls) / len(rolls)}```"""
                 except discord.errors.HTTPException:
                     # If the rolls formatted into text goes past the character limit
                     await ctx.send(
-                        f"{mention} Your roll is too big! Try having fewer sides or using fewer dice."
+                        f"{mention} Your roll is too big! "
+                        "Try having fewer sides or using fewer dice."
                     )
             except ValueError:
                 await ctx.send(
@@ -76,48 +79,53 @@ Average:\t{sum(rolls) / len(rolls)}```"""
                 )
         else:
             await ctx.send(
-                f"{mention} Your roll isn't in dice notation! Type `{ctx.prefix}help roll` for more info."
+                f"{mention} Your roll isn't in dice notation! "
+                f"Type `{ctx.prefix}help roll` for more info."
             )
 
     @commands.command()
     async def coin(self, ctx):
         # Heads or tails. That's it.
         mention = ctx.author.mention
-        c = random.randint(0, 1)
-        if bool(c):
+        coin = random.randint(0, 1)
+        if bool(coin):
             await ctx.send(f"{mention} It's heads.")
         else:
             await ctx.send(f"{mention} It's tails.")
 
     @commands.command()
-    async def lottery(self, ctx, game):
+    async def lottery(self, ctx, game):  # sourcery skip: switch
         mention = ctx.author.mention
         if game == "powerball":
             # (USA) Powerball
             # Five numbers (1-69) + one powerball number (1-26)
             five_numbers = [random.randint(1, 69) for _ in range(5)]
+            five_numbers_formatted = ", ".join(list(map(str, five_numbers)))
             powerball_number = random.randint(1, 26)
             await ctx.send(
                 f""":moneybag: {mention} Here are your Powerball numbers:
-```{', '.join(list(map(str, five_numbers)))} ({powerball_number})```"""
+```{five_numbers_formatted} ({powerball_number})```"""
             )
         elif game == "megamillions":
             # (USA) Mega Millions
             # Five numbers (1-70) + one megaball number (1-25)
             five_numbers = [random.randint(1, 70) for _ in range(5)]
+            five_numbers_formatted = ", ".join(list(map(str, five_numbers)))
             megaball_number = random.randint(1, 25)
             await ctx.send(
                 f""":moneybag: {mention} Here are your Mega Millions numbers:
-```{', '.join(list(map(str, five_numbers)))} ({megaball_number})```"""
+```{five_numbers_formatted} ({megaball_number})```"""
             )
         elif game == "euromillions":
             # (EUR) EuroMillions
             # Five numbers (1-50) + two lucky star numbers (1-12)
             five_numbers = [random.randint(1, 50) for _ in range(5)]
+            five_numbers_formatted = ", ".join(list(map(str, five_numbers)))
             lucky_star_numbers = [random.randint(1, 12) for _ in range(2)]
+            lucky_star_numbers_formatted = " ".join(list(map(str, lucky_star_numbers)))
             await ctx.send(
                 f""":moneybag: {mention} Here are your EuroMillions numbers:
-```{', '.join(list(map(str, five_numbers)))} ({' '.join(list(map(str, lucky_star_numbers)))})```"""
+```{five_numbers_formatted} ({lucky_star_numbers_formatted})```"""
             )
 
 

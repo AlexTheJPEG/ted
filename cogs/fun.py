@@ -1,6 +1,7 @@
-from discord.ext import commands
 import os
 import random
+
+from discord.ext import commands
 
 
 class Fun(commands.Cog):
@@ -15,7 +16,10 @@ class Fun(commands.Cog):
         oh = "OH" * random.randint(15, 30)
         grounded = ("GROUNDED " * random.randint(7, 15)).strip()
         time_unit = random.choice(["YEARS", "CENTURIES", "EONS", "ETERNITIES"])
-        return f"{oh} {groundee.upper()} HOW DARE YOU {reason.upper()}!!! THAT'S IT. YOU ARE {grounded} FOR {time} {time_unit}!!!!!!!!!!"
+        return (
+            f"{oh} {groundee.upper()} HOW DARE YOU {reason.upper()}!!! "
+            f"THAT'S IT. YOU ARE {grounded} FOR {time} {time_unit}!!!!!!!!!!"
+        )
 
     @commands.command()
     async def thegame(self, ctx):
@@ -26,11 +30,13 @@ class Fun(commands.Cog):
         mention = ctx.author.mention
         if ctx.guild is None:
             await ctx.send(
-                "It seems you are not using this command on a server. Go to a server and use this command again!"
+                "It seems you are not using this command on a server. "
+                "Go to a server and use this command again!"
             )
         else:
             await ctx.send(
-                f"{mention} Your very first time joining **{ctx.guild.name}** was on {ctx.author.joined_at}!"
+                f"{mention} Your very first time joining **{ctx.guild.name}** "
+                "was on {ctx.author.joined_at}!"
             )
 
     @commands.command()

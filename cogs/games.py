@@ -1,5 +1,6 @@
 import asyncio
 import random
+
 from discord.ext import commands
 
 
@@ -88,7 +89,8 @@ You can cancel this game at anytime by typing `cancel`."""
                             )
                         else:
                             await ctx.send(
-                                f"{mention} Unbelievable! You got it on your first try!!"
+                                f"{mention} Unbelievable! "
+                                "You got it on your first try!!"
                             )
                         play = False
 
@@ -96,8 +98,9 @@ You can cancel this game at anytime by typing `cancel`."""
     async def guessinggame_error(self, ctx, error):
         if isinstance(error, commands.errors.BadArgument):
             await ctx.send(
-                """That's not a valid number!
-If you want to specify a number, make sure that it's actually a number and that it's in between 2 and 1,000,000."""
+                "That's not a valid number! If you want to specify a number, "
+                "make sure that it's actually a number "
+                "and that it's in between 2 and 1,000,000."
             )
 
 

@@ -131,3 +131,6 @@ dmypy.json
 # Bot files
 discord.log
 settings.json
+
+# VSCode settings
+.vscode/

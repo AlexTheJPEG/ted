@@ -1,7 +1,9 @@
+import random
+
 from discord.ext import commands
+
 from googletrans import Translator
 from googletrans.constants import LANGUAGES
-import random
 
 
 class Translate(commands.Cog):
@@ -28,10 +30,12 @@ class Translate(commands.Cog):
         else:
             # Something went wrong
             await ctx.send(
-                f"""{mention} Make sure that both the source and destination arguments are actual language codes!
-Also remember to use the syntax: `{ctx.prefix}translate (source) (destination) (phrase)`
-If you want me to automatically detect your language, remember to make `(source)` `detect`.
-If the phrase is multiple words, surround it in " quotes \""""
+                f"{mention} Make sure that both the source and destination arguments "
+                "are actual language codes! Also remember to use the syntax: "
+                f"`{ctx.prefix}translate (source) (destination) (phrase)` "
+                "If you want me to automatically detect your language, "
+                "remember to make `(source)` `detect`. "
+                'If the phrase is multiple words, surround it in "quotes."'
             )
 
     @commands.command()
@@ -39,7 +43,8 @@ If the phrase is multiple words, surround it in " quotes \""""
         if src in self.codes and times <= 50:
             mention = ctx.author.mention
             msg = await ctx.send(
-                f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have."""
+                f"{mention} Beginning your bad translation. "
+                "It may take a while depending on how many translations you have."
             )
 
             translated_phrase = phrase
@@ -53,26 +58,37 @@ If the phrase is multiple words, surround it in " quotes \""""
             current_src = src
 
             for index, language in enumerate(used_languages):
-                translated_phrase = self.translator.translate(translated_phrase, src=current_src, dest=language).text
+                translated_phrase = self.translator.translate(
+                    translated_phrase, src=current_src, dest=language
+                ).text
 
                 current_src = language
 
                 if (index + 1) % 5 == 0:
                     # To workaround edit cooldown
                     await msg.edit(
-                        content=f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have. ({index + 1}/{times} complete)"""
+                        content=f"{mention} Beginning your bad translation. "
+                        "It may take a while depending on "
+                        "how many translations you have."
+                        f"({index + 1}/{times} complete)"
                     )
 
             # Just to be safe
             await msg.edit(
-                content=f"""{mention} Beginning your bad translation. It may take a while depending on how many translations you have. ({times}/{times} complete)"""
+                content=f"{mention} Beginning your bad translation. "
+                "It may take a while depending on how many translations you have."
+                f"({times}/{times} complete)"
             )
 
-            translated_phrase = self.translator.translate(translated_phrase, src=current_src, dest=src).text
+            translated_phrase = self.translator.translate(
+                translated_phrase, src=current_src, dest=src
+            ).text
 
-            await ctx.send(f"""{mention} Translating from {src} -> {language_chain} -> {src} gives us:
+            await ctx.send(
+                f"""{mention} Translating from {src} -> {language_chain} -> {src} gives us:
 
-{translated_phrase}""")
+{translated_phrase}"""
+            )
 
     @commands.command()
     async def langcodes(self, ctx):
@@ -84,7 +100,9 @@ If the phrase is multiple words, surround it in " quotes \""""
 
         # Send message
         await author.send(
-            f"""Here are a list of codes you can use for `{ctx.prefix}translate` and `{ctx.prefix}badtranslate`:
+            "Here are a list of codes you can use for "
+            f"`{ctx.prefix}translate` and `{ctx.prefix}badtranslate`:"
+            f"""
 ```
 {formatted_codes}
 ```"""

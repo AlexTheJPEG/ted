@@ -1,10 +1,11 @@
-import discord
 import json
 import logging
 import os
-from discord.ext import commands, tasks
-from random import choice
 from itertools import cycle
+from random import choice
+
+import discord
+from discord.ext import commands, tasks
 
 # Set up logging
 logger = logging.getLogger("discord")
@@ -32,6 +33,7 @@ with open("ready_responses.txt") as file:
     _ready = [response.strip() for response in file.readlines()]
 _status = cycle([f"Try {_prefix}help!", "with 1s and 0s"])
 
+
 # Start status changing loop and print ready message
 @client.event
 async def on_ready():
@@ -45,15 +47,18 @@ async def on_command_error(ctx, error):
     mention = ctx.author.mention
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(
-            f"{mention} That's not a valid command! Type `{_prefix}help` for a list of commands."
+            f"{mention} That's not a valid command! "
+            f"Type `{_prefix}help` for a list of commands."
         )
     elif isinstance(error, commands.errors.InvalidEndOfQuotedStringError):
         await ctx.send(
-            f"{mention} Make sure your entire question is in quotes and there's nothing after the quotes!"
+            f"{mention} Make sure your entire question is in quotes "
+            "and there's nothing after the quotes!"
         )
     elif isinstance(error, commands.errors.ExpectedClosingQuoteError):
         await ctx.send(
-            f"{mention} I only see the starting quote...are you sure you put an ending quote?"
+            f"{mention} I only see the starting quote..."
+            "are you sure you put an ending quote?"
         )
 
 
