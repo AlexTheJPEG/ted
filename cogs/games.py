@@ -26,8 +26,8 @@ class Games(commands.Cog):
             await asyncio.sleep(2)
 
             await ctx.send(
-                f"""You     Me
-{self.rps_emotes[move]}      {self.rps_emotes[bot_move]}"""
+                "You     Me"
+                f"\n{self.rps_emotes[move]}      {self.rps_emotes[bot_move]}"
             )
 
             if move == self.rps_moves[bot_move][0]:
@@ -46,8 +46,9 @@ class Games(commands.Cog):
         if highest in range(2, 1_000_001):
             if highest >= 100_000:
                 await ctx.send(
-                    f"""❓ {mention} A game with this max will take a while! Are you sure you want to do this?
-Type `yes` to confirm or anything else to cancel."""
+                    f"❓ {mention} A game with this max will take a while! "
+                    "Are you sure you want to do this? "
+                    "Type `yes` to confirm or anything else to cancel."
                 )
                 yn = await self.client.wait_for("message")
                 if yn.content.lower() != "yes":
@@ -56,38 +57,47 @@ Type `yes` to confirm or anything else to cancel."""
         else:
             raise commands.errors.BadArgument
 
-        # Starting prompt
-        await ctx.send(
-            f"""💭 {mention} I'm thinking of a number between 1 and {highest}.
-You can cancel this game at anytime by typing `cancel`."""
-        )
-        number = random.randint(1, highest)
-        guesses = 0
+        if play:
+            # Starting prompt
+            await ctx.send(
+                f"💭 {mention} I'm thinking of a number between 1 and {highest}. "
+                "You can cancel this game at any time by typing `cancel`."
+            )
+            number = random.randint(1, highest)
+            guesses = 0
 
         # Game loop
         while play:
             guess = await self.client.wait_for("message")
             if guess.content == "cancel":
+                # Player cancelled the game
                 await ctx.send(f"{mention} Your game was cancelled.")
                 play = False
             elif guess.content.isdigit():
+                # Player entered a number
                 guess = int(guess.content)
                 if guess not in range(1, highest + 1):
+                    # The number is outside of the specified range
                     await ctx.send(
                         f"❗ {mention} That's not a number between 1 and {highest}!"
                     )
                 else:
+                    # The number is valid
                     guesses += 1
                     if guess > number:
+                        # The guess is lower than the answer
                         await ctx.send(f"🔽 {mention} My number is lower.")
                     elif guess < number:
+                        # The guess is higher than the number
                         await ctx.send(f"🔼 {mention} My number is higher.")
                     else:
+                        # The player got the number right
                         if guesses > 1:
                             await ctx.send(
                                 f"👍 {mention} You got it! It took you {guesses} tries."
                             )
                         else:
+                            # The player got it on their first try
                             await ctx.send(
                                 f"🤯 {mention} Unbelievable! "
                                 "You got it on your first try!!"

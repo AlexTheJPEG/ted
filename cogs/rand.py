@@ -9,6 +9,9 @@ class Rand(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+        self.init_eight_ball()
+
+    def init_eight_ball(self):
         eb_responses_path = os.getcwd() + "/cogs/8ball/"
         eb_path_positive = eb_responses_path + "positive.txt"
         eb_path_negative = eb_responses_path + "negative.txt"
@@ -46,6 +49,8 @@ class Rand(commands.Cog):
 
         # Pick a random response
         choice = random.choice(self.eb_responses)
+
+        # Add the corresponding emoji
         if choice in self.eb_responses_positive:
             choice = "✔ " + choice
         elif choice in self.eb_responses_negative:
@@ -69,12 +74,12 @@ class Rand(commands.Cog):
                 try:
                     mention = ctx.author.mention
                     await ctx.send(
-                        f"""🎲 {mention} rolled a {''.join(d)} and got:
-```{', '.join(list(map(str, rolls)))}```
-```Max:\t\t{max(rolls)}
-Min:\t\t{min(rolls)}
-Sum:\t\t{sum(rolls)}
-Average:\t{sum(rolls) / len(rolls)}```"""
+                        f"🎲 {mention} rolled a {''.join(d)} and got:"
+                        f"\n```{', '.join(list(map(str, rolls)))}```"
+                        f"\n```Max:\t\t{max(rolls)}"
+                        f"\nMin:\t\t{min(rolls)}"
+                        f"\nSum:\t\t{sum(rolls)}"
+                        f"\nAverage:\t{sum(rolls) / len(rolls)}```"
                     )
                 except discord.errors.HTTPException:
                     # If the rolls formatted into text goes past the character limit
@@ -83,11 +88,13 @@ Average:\t{sum(rolls) / len(rolls)}```"""
                         "Try having fewer sides or using fewer dice."
                     )
             except ValueError:
+                # If the dice notation is invalid
                 await ctx.send(
                     f"❗ {mention} Make sure both sides of "
                     "the dice notation are numbers!"
                 )
         else:
+            # If the roll is not in dice notation
             await ctx.send(
                 f"❗ {mention} Your roll isn't in dice notation! "
                 f"Type `{ctx.prefix}help roll` for more info."
@@ -113,8 +120,8 @@ Average:\t{sum(rolls) / len(rolls)}```"""
             five_numbers_formatted = ", ".join(list(map(str, five_numbers)))
             powerball_number = random.randint(1, 26)
             await ctx.send(
-                f"""💰 {mention} Here are your Powerball numbers:
-```{five_numbers_formatted} ({powerball_number})```"""
+                f"💰 {mention} Here are your Powerball numbers:"
+                f"\n```{five_numbers_formatted} ({powerball_number})```"
             )
         elif game == "megamillions":
             # (USA) Mega Millions
@@ -123,8 +130,8 @@ Average:\t{sum(rolls) / len(rolls)}```"""
             five_numbers_formatted = ", ".join(list(map(str, five_numbers)))
             megaball_number = random.randint(1, 25)
             await ctx.send(
-                f"""💰 {mention} Here are your Mega Millions numbers:
-```{five_numbers_formatted} ({megaball_number})```"""
+                f"💰 {mention} Here are your Mega Millions numbers:"
+                f"\n```{five_numbers_formatted} ({megaball_number})```"
             )
         elif game == "euromillions":
             # (EUR) EuroMillions
@@ -134,8 +141,8 @@ Average:\t{sum(rolls) / len(rolls)}```"""
             lucky_star_numbers = [random.randint(1, 12) for _ in range(2)]
             lucky_star_numbers_formatted = " ".join(list(map(str, lucky_star_numbers)))
             await ctx.send(
-                f"""💰 {mention} Here are your EuroMillions numbers:
-```{five_numbers_formatted} ({lucky_star_numbers_formatted})```"""
+                f"💰 {mention} Here are your EuroMillions numbers:"
+                f"\n```{five_numbers_formatted} ({lucky_star_numbers_formatted})```"
             )
 
 

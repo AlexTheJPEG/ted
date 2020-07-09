@@ -46,8 +46,9 @@ class Help(commands.Cog):
             )
 
             await author.send(
-                content=f"""To get help on a specific command, type `{ctx.prefix}help (command)`
-To bring up this message again, type `{ctx.prefix}help`!""",
+                content="To get help on a specific command, "
+                f"type `{ctx.prefix}help (command)`. "
+                f"To bring up this message again, type `{ctx.prefix}help`!",
                 embed=embed,
             )
         else:

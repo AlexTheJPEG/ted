@@ -69,14 +69,14 @@ class Translate(commands.Cog):
                     await msg.edit(
                         content=f"🗯 {mention} Beginning your bad translation. "
                         "It may take a while depending on "
-                        "how many translations you have."
+                        "how many translations you have. "
                         f"({index + 1}/{times} complete)"
                     )
 
             # Just to be safe
             await msg.edit(
                 content=f"🗯 {mention} Beginning your bad translation. "
-                "It may take a while depending on how many translations you have."
+                "It may take a while depending on how many translations you have. "
                 f"({times}/{times} complete)"
             )
 
@@ -85,9 +85,8 @@ class Translate(commands.Cog):
             ).text
 
             await ctx.send(
-                f"""🗯 {mention} Translating from {src} -> {language_chain} -> {src} gives us:
-
-{translated_phrase}"""
+                f"🗯 {mention} Translating from {src} -> {language_chain} -> {src} "
+                f"gives us:\n\n{translated_phrase}"
             )
 
     @commands.command()
@@ -102,10 +101,7 @@ class Translate(commands.Cog):
         await author.send(
             "📄 Here are a list of codes you can use for "
             f"`{ctx.prefix}translate` and `{ctx.prefix}badtranslate`:"
-            f"""
-```
-{formatted_codes}
-```"""
+            f"\n```\n{formatted_codes}\n```"
         )
 
 
