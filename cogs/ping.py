@@ -10,8 +10,7 @@ class Ping(commands.Cog):
         # ? Is this accurate?
         mention = ctx.author.mention
         await ctx.send(
-            f":ping_pong: {mention} Pong! "
-            f"(**{round(self.client.latency * 1000, 1)}ms**)"
+            f"🏓 {mention} Pong! " f"(**{round(self.client.latency * 1000, 1)}ms**)"
         )
 
 

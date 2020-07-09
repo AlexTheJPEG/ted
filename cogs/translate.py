@@ -18,19 +18,19 @@ class Translate(commands.Cog):
         if src == "detect" and des in self.codes:
             # Automatically detect the language
             await ctx.send(
-                f"""{mention} Translation to {des}:
+                f"""💬 {mention} Translation to {des}:
 {self.translator.translate(phrase, dest=des).text}"""
             )
         elif src in self.codes and des in self.codes:
             # Use the specified language
             await ctx.send(
-                f"""{mention} Translation from {src} to {des}:
+                f"""💬 {mention} Translation from {src} to {des}:
 {self.translator.translate(phrase, src=src, dest=des).text}"""
             )
         else:
             # Something went wrong
             await ctx.send(
-                f"{mention} Make sure that both the source and destination arguments "
+                f"❗ {mention} Make sure that both the source and destination arguments "
                 "are actual language codes! Also remember to use the syntax: "
                 f"`{ctx.prefix}translate (source) (destination) (phrase)` "
                 "If you want me to automatically detect your language, "
@@ -43,7 +43,7 @@ class Translate(commands.Cog):
         if src in self.codes and times <= 50:
             mention = ctx.author.mention
             msg = await ctx.send(
-                f"{mention} Beginning your bad translation. "
+                f"🗯 {mention} Beginning your bad translation. "
                 "It may take a while depending on how many translations you have."
             )
 
@@ -67,7 +67,7 @@ class Translate(commands.Cog):
                 if (index + 1) % 5 == 0:
                     # To workaround edit cooldown
                     await msg.edit(
-                        content=f"{mention} Beginning your bad translation. "
+                        content=f"🗯 {mention} Beginning your bad translation. "
                         "It may take a while depending on "
                         "how many translations you have."
                         f"({index + 1}/{times} complete)"
@@ -75,7 +75,7 @@ class Translate(commands.Cog):
 
             # Just to be safe
             await msg.edit(
-                content=f"{mention} Beginning your bad translation. "
+                content=f"🗯 {mention} Beginning your bad translation. "
                 "It may take a while depending on how many translations you have."
                 f"({times}/{times} complete)"
             )
@@ -85,7 +85,7 @@ class Translate(commands.Cog):
             ).text
 
             await ctx.send(
-                f"""{mention} Translating from {src} -> {language_chain} -> {src} gives us:
+                f"""🗯 {mention} Translating from {src} -> {language_chain} -> {src} gives us:
 
 {translated_phrase}"""
             )
@@ -100,7 +100,7 @@ class Translate(commands.Cog):
 
         # Send message
         await author.send(
-            "Here are a list of codes you can use for "
+            "📄 Here are a list of codes you can use for "
             f"`{ctx.prefix}translate` and `{ctx.prefix}badtranslate`:"
             f"""
 ```

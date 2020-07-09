@@ -25,7 +25,7 @@ class Help(commands.Cog):
 
         if command != "" and command not in command_names:
             await ctx.send(
-                "That's not a valid command! "
+                "❗ That's not a valid command! "
                 f"Type `{ctx.prefix}help` for a list of commands to get help on."
             )
         elif command == "" or command in "help":

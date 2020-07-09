@@ -35,8 +35,8 @@ class Fun(commands.Cog):
             )
         else:
             await ctx.send(
-                f"{mention} Your very first time joining **{ctx.guild.name}** "
-                "was on {ctx.author.joined_at}!"
+                f"🕒 {mention} Your very first time joining **{ctx.guild.name}** "
+                f"was on {ctx.author.joined_at}!"
             )
 
     @commands.command()

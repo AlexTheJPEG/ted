@@ -25,7 +25,7 @@ class React(commands.Cog):
             for emote in self.yesno_emotes:
                 await poll.add_reaction(emote)
         else:
-            await ctx.send("What is your question?")
+            await ctx.send("❓ What is your question?")
 
     @commands.command(aliases=["scale"])
     async def numbers(self, ctx, question=""):
@@ -34,7 +34,7 @@ class React(commands.Cog):
             for emote in self.number_emotes:
                 await poll.add_reaction(emote)
         else:
-            await ctx.send("What is your question?")
+            await ctx.send("❓ What is your question?")
 
 
 def setup(client):

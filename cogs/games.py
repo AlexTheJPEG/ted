@@ -12,7 +12,7 @@ class Games(commands.Cog):
             "paper": ["rock", "scissors"],
             "scissors": ["paper", "rock"],
         }
-        self.rps_emotes = {"rock": "👊", "paper": "✋", "scissors": "✌"}
+        self.rps_emotes = {"rock": "✊", "paper": "✋", "scissors": "✌"}
 
     @commands.command()
     async def rps(self, ctx, move=""):
@@ -22,7 +22,7 @@ class Games(commands.Cog):
         else:
             bot_move = random.choice(list(self.rps_moves.keys()))
 
-            await ctx.send(f"{mention} Rock, paper, scissors, shoot!")
+            await ctx.send(f"✊✋✌ {mention} Rock, paper, scissors, shoot!")
             await asyncio.sleep(2)
 
             await ctx.send(
@@ -46,7 +46,7 @@ class Games(commands.Cog):
         if highest in range(2, 1_000_001):
             if highest >= 100_000:
                 await ctx.send(
-                    f"""{mention} A game with this max will take a while! Are you sure you want to do this?
+                    f"""❓ {mention} A game with this max will take a while! Are you sure you want to do this?
 Type `yes` to confirm or anything else to cancel."""
                 )
                 yn = await self.client.wait_for("message")
@@ -58,7 +58,7 @@ Type `yes` to confirm or anything else to cancel."""
 
         # Starting prompt
         await ctx.send(
-            f"""{mention} I'm thinking of a number between 1 and {highest}.
+            f"""💭 {mention} I'm thinking of a number between 1 and {highest}.
 You can cancel this game at anytime by typing `cancel`."""
         )
         number = random.randint(1, highest)
@@ -74,22 +74,22 @@ You can cancel this game at anytime by typing `cancel`."""
                 guess = int(guess.content)
                 if guess not in range(1, highest + 1):
                     await ctx.send(
-                        f"{mention} That's not a number between 1 and {highest}!"
+                        f"❗ {mention} That's not a number between 1 and {highest}!"
                     )
                 else:
                     guesses += 1
                     if guess > number:
-                        await ctx.send(f"{mention} My number is lower.")
+                        await ctx.send(f"🔽 {mention} My number is lower.")
                     elif guess < number:
-                        await ctx.send(f"{mention} My number is higher.")
+                        await ctx.send(f"🔼 {mention} My number is higher.")
                     else:
                         if guesses > 1:
                             await ctx.send(
-                                f"{mention} You got it! It took you {guesses} tries."
+                                f"👍 {mention} You got it! It took you {guesses} tries."
                             )
                         else:
                             await ctx.send(
-                                f"{mention} Unbelievable! "
+                                f"🤯 {mention} Unbelievable! "
                                 "You got it on your first try!!"
                             )
                         play = False
@@ -98,7 +98,7 @@ You can cancel this game at anytime by typing `cancel`."""
     async def guessinggame_error(self, ctx, error):
         if isinstance(error, commands.errors.BadArgument):
             await ctx.send(
-                "That's not a valid number! If you want to specify a number, "
+                "❗ That's not a valid number! If you want to specify a number, "
                 "make sure that it's actually a number "
                 "and that it's in between 2 and 1,000,000."
             )
