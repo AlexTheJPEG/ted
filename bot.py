@@ -20,18 +20,22 @@ logger.addHandler(handler)
 settings = json.loads(open("settings.json", "r").read())
 
 # Token and command prefix
-_token = settings["token"]
-_prefix = settings["prefix"]
-_respond_to_self = settings["respond_to_self"]
-_respond_to_bots = settings["respond_to_bots"]
+token = settings["token"]
+prefix = settings["prefix"]
 
-# Client initialization
-client = commands.Bot(command_prefix=_prefix)
+# Respond to self / other bots
+# TODO: Actually make this work
+respond_to_self = settings["respond_to_self"]
+respond_to_bots = settings["respond_to_bots"]
+
 
 # Ready messages and status change messages
 with open("ready_responses.txt") as file:
     _ready = [response.strip() for response in file.readlines()]
-_status = cycle([f"Try {_prefix}help!", "with 1s and 0s"])
+status = cycle([f"Try {prefix}help!", "with 1s and 0s"])
+
+# Client initialization
+client = commands.Bot(command_prefix=prefix)
 
 
 # Start status changing loop and print ready message
@@ -48,7 +52,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(
             f"{mention} That's not a valid command! "
-            f"Type `{_prefix}help` for a list of commands."
+            f"Type `{prefix}help` for a list of commands."
         )
     elif isinstance(error, commands.errors.InvalidEndOfQuotedStringError):
         await ctx.send(
@@ -65,7 +69,7 @@ async def on_command_error(ctx, error):
 # Change status from trying the help message to a funny message
 @tasks.loop(seconds=5)
 async def change_status():
-    await client.change_presence(activity=discord.Game(next(_status)))
+    await client.change_presence(activity=discord.Game(next(status)))
 
 
 # Load cogs
@@ -74,4 +78,4 @@ for filename in os.listdir("./cogs"):
         client.load_extension(f"cogs.{filename[:-3]}")
 
 # Run the bot
-client.run(_token)
+client.run(token)
