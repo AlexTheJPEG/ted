@@ -4,6 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+flake8 = "*"
+flake8-import-order = "*"
+flake8-bugbear = "*"
+flake8-bandit = "*"
+flake8-black = "*"
+black = "*"
+isort = "*"
+mypy = "*"
+pytest = "*"
 
 [packages]
 discord-py = "*"
@@ -14,3 +23,6 @@ ted = "python bot.py"
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
