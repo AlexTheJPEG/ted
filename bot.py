@@ -69,11 +69,11 @@ async def on_command_error(ctx, error):
 @client.event
 async def on_message(message):
     # Make sure bot doesn't respond to itself
-    if message.author.id == client.user.id and respond_to_self == "False":
+    if message.author.id == client.user.id and respond_to_self.lower() == "false":
         return
 
     # Make sure bot doesn't respond to other bots
-    if message.author.bot and respond_to_bots == "False":
+    if message.author.bot and respond_to_bots.lower() == "false":
         return
 
     await client.process_commands(message)
