@@ -17,7 +17,6 @@ class Config(commands.Cog):
         number_of_cogs = len(cogs)
 
         loaded_cogs = [k.lower() for k in self.client.cogs.keys()]
-        print(loaded_cogs)
 
         for cog in cogs:
             try:
