@@ -24,7 +24,6 @@ token = settings["token"]
 prefix = settings["prefix"]
 
 # Respond to self / other bots
-# TODO: Actually make this work
 respond_to_self = settings["respond_to_self"]
 respond_to_bots = settings["respond_to_bots"]
 
@@ -64,6 +63,20 @@ async def on_command_error(ctx, error):
             f"{mention} I only see the starting quote..."
             "are you sure you put an ending quote?"
         )
+
+
+# Message handling
+@client.event
+async def on_message(message):
+    # Make sure bot doesn't respond to itself
+    if message.author.id == client.user.id and respond_to_self == "False":
+        return
+
+    # Make sure bot doesn't respond to other bots
+    if message.author.bot and respond_to_bots == "False":
+        return
+
+    await client.process_commands(message)
 
 
 # Change status from trying the help message to a funny message
