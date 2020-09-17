@@ -41,6 +41,8 @@ class Games(commands.Cog):
     async def guessinggame(self, ctx, highest=100):
         mention = ctx.author.mention
         play = True
+        number = random.randint(1, highest)
+        guesses = 0
 
         # Check number for validity
         if highest in range(2, 1_000_001):
@@ -63,8 +65,6 @@ class Games(commands.Cog):
                 f"💭 {mention} I'm thinking of a number between 1 and {highest}. "
                 "You can cancel this game at any time by typing `cancel`."
             )
-            number = random.randint(1, highest)
-            guesses = 0
 
         # Game loop
         while play:
