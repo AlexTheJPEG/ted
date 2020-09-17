@@ -16,10 +16,14 @@ class Config(commands.Cog):
         cogs_reloaded = 0
         number_of_cogs = len(cogs)
 
+        loaded_cogs = [k.lower() for k in self.client.cogs.keys()]
+        print(loaded_cogs)
+
         for cog in cogs:
             try:
                 time_start = time.time()
-                self.client.unload_extension(f"cogs.{cog[:-3]}")
+                if cog[:-3] in loaded_cogs:
+                    self.client.unload_extension(f"cogs.{cog[:-3]}")
                 self.client.load_extension(f"cogs.{cog[:-3]}")
                 time_end = time.time()
 
