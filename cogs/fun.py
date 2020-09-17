@@ -8,7 +8,7 @@ class Fun(commands.Cog):
     def __init__(self, client):
         self.client = client
         slap_texts_path = os.getcwd() + "/cogs/slap/slaps.txt"
-        with open(slap_texts_path) as slaps:
+        with open(slap_texts_path, errors="ignore") as slaps:
             self.slap_texts = [slap.strip() for slap in slaps.readlines()]
 
     def create_ground_string(self, groundee, reason):
