@@ -1,4 +1,7 @@
 # Ted
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/751b2896576a4dd4b339a5e5fe7bc6f4)](https://app.codacy.com/manual/AlexTheJPEG/ted?utm_source=github.com&utm_medium=referral&utm_content=AlexTheJPEG/ted&utm_campaign=Badge_Grade_Settings)
+
 Just another Discord bot made with Python.
 
 # Dependencies
