@@ -34,6 +34,8 @@ class Help(commands.Cog):
                 f"Type `{ctx.prefix}help` for a list of commands to get help on."
             )
         elif command == "" or command in "help":
+            await ctx.send(f"{author.mention} 👍 Check your DMs for help!")
+
             embed.set_author(
                 name="Ted's List of Commands",
                 url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
