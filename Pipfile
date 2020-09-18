@@ -12,7 +12,6 @@ flake8-black = "*"
 black = "*"
 isort = "*"
 mypy = "*"
-pytest = "*"
 
 [packages]
 discord-py = "*"
