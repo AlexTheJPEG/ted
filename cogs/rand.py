@@ -7,6 +7,11 @@ from discord.ext import commands
 
 class Rand(commands.Cog):
     def __init__(self, client):
+        """Cog for commands that involve randomness.
+
+        Args:
+            client (commands.Bot): The bot that the cog belongs to.
+        """
         self.client = client
 
         self.init_eight_ball()

@@ -7,6 +7,11 @@ from discord.ext import commands
 
 class Help(commands.Cog):
     def __init__(self, client):
+        """Cog for getting help on commands.
+
+        Args:
+            client (commands.Bot): The bot that the cog belongs to.
+        """
         self.client = client
         self.help_texts_path = os.getcwd() + "/cogs/"
         self.help_texts = json.loads(

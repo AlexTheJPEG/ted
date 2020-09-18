@@ -8,6 +8,11 @@ from googletrans.constants import LANGUAGES
 
 class Translate(commands.Cog):
     def __init__(self, client):
+        """Cog for language translation.
+
+        Args:
+            client (commands.Bot): The bot that the cog belongs to.
+        """
         self.client = client
         self.translator = Translator()
         self.codes = list(LANGUAGES.keys())

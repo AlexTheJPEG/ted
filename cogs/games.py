@@ -6,6 +6,11 @@ from discord.ext import commands
 
 class Games(commands.Cog):
     def __init__(self, client):
+        """Cog for games with the bot.
+
+        Args:
+            client (commands.Bot): The bot that the cog belongs to.
+        """
         self.client = client
         self.rps_moves = {
             "rock": ["scissors", "paper"],

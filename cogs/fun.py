@@ -6,6 +6,11 @@ from discord.ext import commands
 
 class Fun(commands.Cog):
     def __init__(self, client):
+        """Cog for fun commands.
+
+        Args:
+            client (commands.Bot): The bot that the cog belongs to.
+        """
         self.client = client
         slap_texts_path = os.getcwd() + "/cogs/slap/slaps.txt"
         with open(slap_texts_path, errors="ignore") as slaps:

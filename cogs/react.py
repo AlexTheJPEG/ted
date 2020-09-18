@@ -3,6 +3,11 @@ from discord.ext import commands
 
 class React(commands.Cog):
     def __init__(self, client):
+        """Cog for commands that involve reacting to posts.
+
+        Args:
+            client (commands.Bot): The bot that the cog belongs to.
+        """
         self.client = client
         self.yesno_emotes = ["👍", "👎"]
         self.number_emotes = [

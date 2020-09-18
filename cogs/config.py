@@ -7,6 +7,11 @@ from discord.ext import commands
 
 class Config(commands.Cog):
     def __init__(self, client):
+        """Configuration cog for setup and development purposes.
+
+        Args:
+            client (commands.Bot): The bot that the cog belongs to.
+        """
         self.client = client
 
     @commands.command()
