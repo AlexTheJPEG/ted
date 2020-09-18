@@ -1,4 +1,4 @@
-import random
+from secrets import SystemRandom
 
 from discord.ext import commands
 
@@ -11,6 +11,7 @@ class Translate(commands.Cog):
         self.client = client
         self.translator = Translator()
         self.codes = list(LANGUAGES.keys())
+        self.random_gen = SystemRandom()
 
     @commands.command()
     async def translate(self, ctx, src, des, phrase):
@@ -50,7 +51,7 @@ class Translate(commands.Cog):
             translated_phrase = phrase
 
             used_languages = self.codes
-            random.shuffle(used_languages)
+            self.random_gen.shuffle(used_languages)
             used_languages = used_languages[:times]
 
             language_chain = " -> ".join(used_languages)

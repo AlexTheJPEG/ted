@@ -1,5 +1,5 @@
 import os
-import random
+from secrets import SystemRandom
 
 from discord.ext import commands
 
@@ -10,12 +10,13 @@ class Fun(commands.Cog):
         slap_texts_path = os.getcwd() + "/cogs/slap/slaps.txt"
         with open(slap_texts_path, errors="ignore") as slaps:
             self.slap_texts = [slap.strip() for slap in slaps.readlines()]
+        self.random_gen = SystemRandom()
 
     def create_ground_string(self, groundee, reason):
-        time = random.randint(10 ** 50, 99 ** 50)
-        oh = "OH" * random.randint(15, 30)
-        grounded = ("GROUNDED " * random.randint(7, 15)).strip()
-        time_unit = random.choice(["YEARS", "CENTURIES", "EONS", "ETERNITIES"])
+        time = self.random_gen.randint(10 ** 50, 99 ** 50)
+        oh = "OH" * self.random_gen.randint(15, 30)
+        grounded = ("GROUNDED " * self.random_gen.randint(7, 15)).strip()
+        time_unit = self.random_gen.choice(["YEARS", "CENTURIES", "EONS", "ETERNITIES"])
         return (
             f"{oh} {groundee.upper()} HOW DARE YOU {reason.upper()}!!! "
             f"THAT'S IT. YOU ARE {grounded} FOR {time} {time_unit}!!!!!!!!!!"
@@ -45,7 +46,7 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def slap(self, ctx, slappee):
-        await ctx.send(random.choice(self.slap_texts).format(slappee))
+        await ctx.send(self.random_gen.choice(self.slap_texts).format(slappee))
 
     @ground.error
     async def ground_error(self, ctx, error):

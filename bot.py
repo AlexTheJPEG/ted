@@ -2,7 +2,7 @@ import json
 import logging
 import os
 from itertools import cycle
-from random import choice
+from secrets import choice
 
 import discord
 from discord.ext import commands, tasks

@@ -1,5 +1,5 @@
 import asyncio
-import random
+from secrets import SystemRandom
 
 from discord.ext import commands
 
@@ -13,6 +13,7 @@ class Games(commands.Cog):
             "scissors": ["paper", "rock"],
         }
         self.rps_emotes = {"rock": "✊", "paper": "✋", "scissors": "✌"}
+        self.random_gen = SystemRandom()
 
     @commands.command()
     async def rps(self, ctx, move=""):
@@ -20,7 +21,7 @@ class Games(commands.Cog):
         if move.lower() not in self.rps_moves.keys():
             await ctx.send(f"{mention} That's not a valid move!")
         else:
-            bot_move = random.choice(list(self.rps_moves.keys()))
+            bot_move = self.random_gen.choice(list(self.rps_moves.keys()))
 
             await ctx.send(f"✊✋✌ {mention} Rock, paper, scissors, shoot!")
             await asyncio.sleep(2)
@@ -41,7 +42,7 @@ class Games(commands.Cog):
     async def guessinggame(self, ctx, highest=100):
         mention = ctx.author.mention
         play = True
-        number = random.randint(1, highest)
+        number = self.random_gen.randint(1, highest)
         guesses = 0
 
         # Check number for validity
