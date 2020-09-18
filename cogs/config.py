@@ -16,30 +16,36 @@ class Config(commands.Cog):
 
     @commands.command()
     @commands.is_owner()
-    async def reload(self, ctx):
+    async def reload(self, ctx, cog_to_load=""):
         cogs = [cog for cog in os.listdir("./cogs") if cog.endswith(".py")]
         cogs_reloaded = 0
         number_of_cogs = len(cogs)
 
         loaded_cogs = [k.lower() for k in self.client.cogs.keys()]
 
-        for cog in cogs:
-            try:
-                time_start = time.time()
-                if cog[:-3] in loaded_cogs:
-                    self.client.unload_extension(f"cogs.{cog[:-3]}")
-                self.client.load_extension(f"cogs.{cog[:-3]}")
-                time_end = time.time()
+        if cog_to_load in loaded_cogs:
+            self.client.unload_extension(f"cogs.{cog_to_load}")
+            self.client.load_extension(f"cogs.{cog_to_load}")
 
-                duration = round((time_end - time_start) * 1000, 1)
-                await ctx.send(f"👍 Successfully reloaded {cog}! ({duration} ms)")
-                cogs_reloaded += 1
-            except Exception as e:
-                await ctx.send(f"👎 Couldn't reload {cog}... {e}")
+            await ctx.send(f"👍 Reloaded {cog_to_load}.py!")
+        else:
+            for cog in cogs:
+                try:
+                    time_start = time.time()
+                    if cog[:-3] in loaded_cogs:
+                        self.client.unload_extension(f"cogs.{cog[:-3]}")
+                    self.client.load_extension(f"cogs.{cog[:-3]}")
+                    time_end = time.time()
 
-            await asyncio.sleep(1)
+                    duration = round((time_end - time_start) * 1000, 1)
+                    await ctx.send(f"👍 Successfully reloaded {cog}! ({duration} ms)")
+                    cogs_reloaded += 1
+                except Exception as e:
+                    await ctx.send(f"👎 Couldn't reload {cog}... {e}")
 
-        await ctx.send(f"\nReloaded {cogs_reloaded}/{number_of_cogs} cog(s)!")
+                await asyncio.sleep(1)
+
+            await ctx.send(f"\nReloaded {cogs_reloaded}/{number_of_cogs} cog(s)!")
 
 
 def setup(client):
