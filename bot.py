@@ -90,4 +90,9 @@ async def change_status():
 
 
 # Run the bot
-client.run(token)
+try:
+    client.loop.run_until_complete(client.start(token))
+except KeyboardInterrupt:
+    client.loop.run_until_complete(client.logout())
+finally:
+    client.loop.close()
