@@ -18,7 +18,6 @@ class Config(commands.Cog):
     @commands.is_owner()
     async def reload(self, ctx, cog_to_load=""):
         cogs = [cog for cog in os.listdir("./cogs") if cog.endswith(".py")]
-        cogs_reloaded = 0
         number_of_cogs = len(cogs)
 
         loaded_cogs = [k.lower() for k in self.client.cogs.keys()]
@@ -29,6 +28,7 @@ class Config(commands.Cog):
 
             await ctx.send(f"👍 Reloaded {cog_to_load}.py!")
         else:
+            cogs_reloaded = 0
             for cog in cogs:
                 try:
                     time_start = time.time()
