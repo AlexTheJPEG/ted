@@ -28,12 +28,12 @@ class Help(commands.Cog):
             "a66cc42e800589c1296fcc2665270e62.png"
         )
 
-        if command != "" and command not in command_names:
+        if command and command not in command_names:
             await ctx.send(
                 "❗ That's not a valid command! "
                 f"Type `{ctx.prefix}help` for a list of commands to get help on."
             )
-        elif command == "" or command in "help":
+        elif command == "":
             await ctx.send(f"{author.mention} 👍 Check your DMs for help!")
 
             embed.set_author(
@@ -59,6 +59,8 @@ class Help(commands.Cog):
                 embed=embed,
             )
         else:
+            await ctx.send(f"{author.mention} 👍 Check your DMs for help!")
+
             embed.set_author(
                 name=f"Ted's List of Commands >>> {command}",
                 url=self.help_texts[command]["url"],
