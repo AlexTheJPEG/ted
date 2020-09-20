@@ -27,7 +27,6 @@ prefix = settings["prefix"]
 respond_to_self = settings["respond_to_self"]
 respond_to_bots = settings["respond_to_bots"]
 
-
 # Ready messages and status change messages
 with open("ready_responses.txt") as file:
     _ready = [response.strip() for response in file.readlines()]
@@ -40,6 +39,11 @@ client = commands.Bot(command_prefix=prefix)
 # Start status changing loop and print ready message
 @client.event
 async def on_ready():
+    # Load cogs
+    for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            client.load_extension(f"cogs.{filename[:-3]}")
+
     change_status.start()
     print(choice(_ready))
 
@@ -84,11 +88,6 @@ async def on_message(message):
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
 
-
-# Load cogs
-for filename in os.listdir("./cogs"):
-    if filename.endswith(".py"):
-        client.load_extension(f"cogs.{filename[:-3]}")
 
 # Run the bot
 client.run(token)
