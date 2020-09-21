@@ -12,6 +12,11 @@ flake8-black = "*"
 black = "*"
 isort = "*"
 mypy = "*"
+pytest = "*"
+pytest-asyncio = "*"
+dpytest = {git = "https://github.com/bravosierra99/dpytest"}
+coverage = "*"
+pytest-cov = "*"
 
 [packages]
 discord-py = "*"
