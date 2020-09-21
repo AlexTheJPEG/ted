@@ -54,7 +54,7 @@ class Rand(commands.Cog):
     async def eightball(self, ctx, question: str):
         mention = ctx.author.mention
 
-        # Pick a self.random_gen response
+        # Pick a random response
         choice = self.random_gen.choice(self.eb_responses)
 
         # Add the corresponding emoji
