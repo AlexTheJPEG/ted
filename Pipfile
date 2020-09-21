@@ -17,6 +17,7 @@ pytest-asyncio = "*"
 dpytest = {git = "https://github.com/bravosierra99/dpytest"}
 coverage = "*"
 pytest-cov = "*"
+nox = "*"
 
 [packages]
 discord-py = "*"
@@ -25,6 +26,7 @@ googletrans = "*"
 [scripts]
 ted = "python bot.py"
 test = "pytest --cov=. tests/"
+nox = "nox -r"
 
 [requires]
 python_version = "3.8"
