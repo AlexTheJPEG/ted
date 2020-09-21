@@ -24,6 +24,7 @@ googletrans = "*"
 
 [scripts]
 ted = "python bot.py"
+test = "pytest --cov=. tests/"
 
 [requires]
 python_version = "3.8"
