@@ -30,12 +30,10 @@ class Help(commands.Cog):
 
         if command and command not in command_names:
             await ctx.send(
-                "❗ That's not a valid command! "
+                f"❗ {author.mention} That's not a valid command! "
                 f"Type `{ctx.prefix}help` for a list of commands to get help on."
             )
         elif command == "":
-            await ctx.send(f"{author.mention} 👍 Check your DMs for help!")
-
             embed.set_author(
                 name="Ted's List of Commands",
                 url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
@@ -52,15 +50,13 @@ class Help(commands.Cog):
                 name="FUN", value="`thegame` `whendidijoin` `ground` `slap`"
             )
 
-            await author.send(
-                content="To get help on a specific command, "
+            await ctx.send(
+                content=f"{author.mention} To get help on a specific command, "
                 f"type `{ctx.prefix}help (command)`. "
                 f"To bring up this message again, type `{ctx.prefix}help`!",
                 embed=embed,
             )
         else:
-            await ctx.send(f"{author.mention} 👍 Check your DMs for help!")
-
             embed.set_author(
                 name=f"Ted's List of Commands >>> {command}",
                 url=self.help_texts[command]["url"],
@@ -76,8 +72,8 @@ class Help(commands.Cog):
                 name="WHAT IT DOES", value=self.help_texts[command]["what-it-does"]
             )
 
-            await author.send(
-                content="To bring up this message again, "
+            await ctx.send(
+                content=f"{author.mention} To bring up this message again, "
                 f"type `{ctx.prefix}help {command}`!",
                 embed=embed,
             )
