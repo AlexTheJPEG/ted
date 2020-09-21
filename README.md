@@ -1,6 +1,6 @@
 # Ted
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/751b2896576a4dd4b339a5e5fe7bc6f4)](https://app.codacy.com/manual/AlexTheJPEG/ted?utm_source=github.com&utm_medium=referral&utm_content=AlexTheJPEG/ted&utm_campaign=Badge_Grade_Settings)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1852d89fe34f17ecdc50/maintainability)](https://codeclimate.com/github/AlexTheJPEG/ted/maintainability)
 
 Just another Discord bot made with Python.
 
