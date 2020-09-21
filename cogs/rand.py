@@ -118,7 +118,7 @@ class Rand(commands.Cog):
             await ctx.send(f"{mention} It's tails.")
 
     @commands.command()
-    async def lottery(self, ctx, game):  # sourcery skip: switch
+    async def lottery(self, ctx, game):
         mention = ctx.author.mention
         if game == "powerball":
             # (USA) Powerball
