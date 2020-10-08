@@ -49,6 +49,7 @@ class Help(commands.Cog):
             embed.add_field(
                 name="FUN", value="`thegame` `whendidijoin` `ground` `slap`"
             )
+            embed.add_field(name="IMAGE", value="`avatar`")
 
             await ctx.send(
                 content=f"{author.mention} To get help on a specific command, "

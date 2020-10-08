@@ -82,5 +82,11 @@
     "usage": "slap `slappee`",
     "arguments": "`slappee`: The person you want to slap.",
     "what-it-does": "Someone must have said something really stupid. You must slap them to let them know with this command. Watch out, though, because many slaps can backfire..."
+  },
+  "avatar": {
+    "url": "https://youtu.be/kxp1IBK1OPI",
+    "usage": "avatar `user`",
+    "arguments": "`user`: The person whose avatar you want to get. Default is you.",
+    "what-it-does": "Gets the URL for someone's Discord avatar. Admire their beauty."
   }
 }
