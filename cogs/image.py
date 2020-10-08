@@ -11,11 +11,11 @@ class Image(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def avatar(self, ctx, user):
-        user = ctx.guild.get_member_named(user)
-        avatar_url = user.avatar_url_as(format="png")
+    async def avatar(self, ctx, user=""):
+        member = ctx.author if not user else ctx.guild.get_member_named(user)
+        print(member is None)
+        avatar_url = member.avatar_url_as(format="png")
 
-        # TODO: send actual image
         await ctx.send(avatar_url)
 
 
