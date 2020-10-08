@@ -1,4 +1,3 @@
-import os
 from secrets import SystemRandom
 
 from discord.ext import commands
@@ -12,7 +11,7 @@ class Fun(commands.Cog):
             client (commands.Bot): The bot that the cog belongs to.
         """
         self.client = client
-        slap_texts_path = os.getcwd() + "/cogs/slap/slaps.txt"
+        slap_texts_path = "./cogs/slap/slaps.txt"
         with open(slap_texts_path, errors="ignore") as slaps:
             self.slap_texts = [slap.strip() for slap in slaps.readlines()]
         self.random_gen = SystemRandom()

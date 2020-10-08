@@ -1,4 +1,3 @@
-import os
 from secrets import SystemRandom
 
 from discord.ext import commands
@@ -18,7 +17,7 @@ class Rand(commands.Cog):
         self.random_gen = SystemRandom()
 
     def init_eight_ball(self):
-        eb_responses_path = os.getcwd() + "/cogs/8ball/"
+        eb_responses_path = "./cogs/8ball/"
         eb_path_positive = eb_responses_path + "positive.txt"
         eb_path_negative = eb_responses_path + "negative.txt"
         eb_path_uncertain = eb_responses_path + "uncertain.txt"
