@@ -24,7 +24,7 @@ discord-py = "*"
 googletrans = "*"
 
 [scripts]
-ted = "python bot.py"
+ted = "python launcher.py"
 test = "pytest --cov=. tests/"
 nox = "nox -r"
 
