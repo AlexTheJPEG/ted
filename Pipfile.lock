@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cb45d32eb4389bb730df696d2962fb923f42a94b4d308218e0e120842a13575a"
+            "sha256": "e4b7356829b3468f4d7d3e0434f7d97f55176e51bcd371bd1bfb474bba881bfc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -358,8 +358,12 @@
             "version": "==0.3.1"
         },
         "dpytest": {
-            "git": "https://github.com/bravosierra99/dpytest",
-            "ref": "6aa53b0bf4bd489921ed2bb52ab43d0cc00523e9"
+            "hashes": [
+                "sha256:3cc48a8ccb54e4fcb37a2f7ba8ca5acf355b7bae047a26b74af1d46310039755",
+                "sha256:3e8b073338b272aa02375899d4bae47755c2340c2b31b0646af9eef01843cb78"
+            ],
+            "index": "pypi",
+            "version": "==0.0.21"
         },
         "filelock": {
             "hashes": [
