@@ -5,6 +5,7 @@ from itertools import cycle
 from secrets import choice
 
 import discord
+from discord import Intents
 from discord.ext import commands, tasks
 
 # Set up logging
@@ -36,7 +37,7 @@ class Bot(commands.Bot):
         self.status = cycle([f"Try {self.prefix}help!", "with 1s and 0s"])
 
         # Client initialization
-        super().__init__(command_prefix=self.prefix)
+        super().__init__(command_prefix=self.prefix, intents=Intents.all())
 
     def run(self, version):
         self.version = version
