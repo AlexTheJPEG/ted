@@ -1,4 +1,9 @@
+import os
+
+import discord
 from discord.ext import commands
+
+import requests
 
 
 class Image(commands.Cog):
@@ -12,11 +17,20 @@ class Image(commands.Cog):
 
     @commands.command()
     async def avatar(self, ctx, user=""):
-        member = ctx.author if not user else ctx.guild.get_member_named(user)
-        print(member is None)
-        avatar_url = member.avatar_url_as(format="png")
+        if user.startswith("<@!"):
+            member = ctx.guild.get_member(int(user[3:-1]))
+        else:
+            member = ctx.author if not user else ctx.guild.get_member_named(user)
 
-        await ctx.send(avatar_url)
+        avatar_url = requests.get(member.avatar_url_as(format="png"))
+        filename = f"{ctx.author.id}.png"
+
+        with open(filename, "wb") as img:
+            img.write(avatar_url.content)
+
+        await ctx.send(file=discord.File(filename))
+
+        os.remove(filename)
 
 
 def setup(client):
