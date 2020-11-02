@@ -71,6 +71,10 @@ class Bot(commands.Bot):
                 f"{mention} I only see the starting quote..."
                 "are you sure you put an ending quote?"
             )
+        else:
+            await ctx.send(
+                f"{mention} Oops! There was an error I couldn't identify: " f"{error}"
+            )
 
     # Message handling
     async def on_message(self, message):
