@@ -1,12 +1,14 @@
 import os
 
+from PIL import Image, ImageChops
+
 import discord
 from discord.ext import commands
 
 import requests
 
 
-class Image(commands.Cog):
+class Images(commands.Cog):
     def __init__(self, client):
         """Cog for image manipulation.
 
@@ -34,4 +36,4 @@ class Image(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(Image(client))
+    client.add_cog(Images(client))
