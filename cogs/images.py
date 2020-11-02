@@ -1,6 +1,6 @@
 import os
 
-from PIL import Image, ImageChops
+from PIL import Image, ImageChops, ImageEnhance, ImageOps
 
 import discord
 from discord.ext import commands
@@ -24,11 +24,33 @@ class Images(commands.Cog):
         else:
             member = ctx.author if not user else ctx.guild.get_member_named(user)
 
-        avatar_url = requests.get(member.avatar_url_as(format="png"))
+        avatar = requests.get(member.avatar_url_as(format="png"))
         filename = f"{ctx.author.id}.png"
 
         with open(filename, "wb") as img:
-            img.write(avatar_url.content)
+            img.write(avatar.content)
+
+        await ctx.send(file=discord.File(filename))
+
+        os.remove(filename)
+
+    @commands.command()
+    async def invert(self, ctx):
+        image_url = ctx.message.attachments[0].url
+        image_bytes = requests.get(image_url)
+        filename = f"{ctx.author.id}.png"
+
+        with open(filename, "wb") as img:
+            img.write(image_bytes.content)
+
+        img = Image.open(filename)
+        img = Image.composite(img, Image.new("RGB", img.size, "white"), img)
+
+        inverted_img = ImageChops.invert(img)
+        inverted_img.save(filename)
+
+        img.close()
+        inverted_img.close()
 
         await ctx.send(file=discord.File(filename))
 
