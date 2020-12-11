@@ -56,6 +56,28 @@ class Images(commands.Cog):
 
         os.remove(filename)
 
+    @commands.command()
+    async def jpegify(self, ctx):
+        image_url = ctx.message.attachments[0].url
+        image_bytes = requests.get(image_url)
+        filename = f"{ctx.author.id}.jpg"
+
+        with open(filename, "wb") as img:
+            img.write(image_bytes.content)
+
+        img = Image.open(filename)
+        img = Image.composite(img, Image.new("RGB", img.size, "white"), img)
+
+        jpegified_img = img
+        jpegified_img.save(filename, optimize=True, quality=0)
+
+        img.close()
+        jpegified_img.close()
+
+        await ctx.send(file=discord.File(filename))
+
+        os.remove(filename)
+
 
 def setup(client):
     client.add_cog(Images(client))
