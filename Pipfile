@@ -21,9 +21,9 @@ nox = "*"
 
 [packages]
 discord-py = "*"
-googletrans = "*"
 pillow = "*"
 requests = "*"
+googletrans = "==4.0.0rc1"
 
 [scripts]
 ted = "python launcher.py"
