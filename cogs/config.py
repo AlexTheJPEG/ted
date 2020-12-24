@@ -47,6 +47,12 @@ class Config(commands.Cog):
 
             await ctx.send(f"\nReloaded {cogs_reloaded}/{number_of_cogs} cog(s)!")
 
+    @commands.command()
+    @commands.is_owner()
+    async def logout(self, ctx):
+        await ctx.send("🚶🏾‍♂️ Aight, imma head out")
+        await self.client.logout()
+
 
 def setup(client):
     client.add_cog(Config(client))
