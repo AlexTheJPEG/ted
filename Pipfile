@@ -11,13 +11,6 @@ flake8-bandit = "*"
 flake8-black = "*"
 black = "*"
 isort = "*"
-mypy = "*"
-pytest = "*"
-pytest-asyncio = "*"
-dpytest = "*"
-coverage = "*"
-pytest-cov = "*"
-nox = "*"
 
 [packages]
 discord-py = "*"
@@ -27,8 +20,6 @@ googletrans = "==4.0.0rc1"
 
 [scripts]
 ted = "python launcher.py"
-test = "pytest --cov=. tests/"
-nox = "nox -r"
 
 [requires]
 python_version = "3.8"
