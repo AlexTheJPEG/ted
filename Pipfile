@@ -19,7 +19,7 @@ requests = "*"
 googletrans = "==4.0.0rc1"
 
 [scripts]
-ted = "python launcher.py"
+ted = "python bot.py"
 
 [requires]
 python_version = "3.8"

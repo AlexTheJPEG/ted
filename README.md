@@ -18,15 +18,9 @@ It should look something like this:
 {
   "token": "insert token here",
   "prefix": "$",
-  "respond_to_self": "False",
-  "respond_to_bots": "False"
 }
 ```
 
 `token` - Your bot's token
 
 `prefix` - What character(s) should be used before commands
-
-`respond_to_self` - Should the bot be able to respond to itself? (False is recommended)
-
-`respond_to_bots` - Should the bot be able to respond to other bots? (False is recommended)
