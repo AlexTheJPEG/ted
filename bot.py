@@ -18,10 +18,21 @@ handler.setFormatter(
 logger.addHandler(handler)
 
 
+def read_json(path):
+    with open(path, "r") as json_file:
+        data = json.load(json_file)
+    return data
+
+
+def write_json(data, path):
+    with open(path, "w") as json_file:
+        json.dump(data, json_file, indent=2)
+
+
 class Bot(commands.Bot):
     def __init__(self):
         # Load settings from settings.json
-        self.settings = json.loads(open("./settings.json", "r").read())
+        self.settings = read_json("./settings.json")
 
         # Token and command prefix
         self.token = self.settings["token"]
