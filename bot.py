@@ -103,6 +103,15 @@ class Bot(commands.Bot):
                 "Have someone else do it!"
             )
 
+        # Handle cooldown errors
+        elif isinstance(error, commands.CommandOnCooldown):
+            m, s = divmod(error.retry_after, 60)
+            h, m = divmod(m, 60)
+            await ctx.send(
+                f"{mention} That command's on cooldown! Wait for "
+                f"{h:02}:{m:02}:{s:02}!"
+            )
+
         # Raise the error to the console
         raise error
 
