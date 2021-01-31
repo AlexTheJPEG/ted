@@ -76,12 +76,14 @@ class Rand(commands.Cog):
                 sides = int(dice[2])
                 # Generate rolls
                 rolls = [self.random_gen.randint(1, sides) for _ in range(number)]
-                roll_string = f"🎲 {mention} rolled a {''.join(d)} and got:" \
-                              f"\n```{', '.join(list(map(str, rolls)))}```" \
-                              f"\n```Max:\t\t{max(rolls)}" \
-                              f"\nMin:\t\t{min(rolls)}" \
-                              f"\nSum:\t\t{sum(rolls)}" \
-                              f"\nAverage:\t{sum(rolls) / len(rolls)}```"
+                roll_string = (
+                    f"🎲 {mention} rolled a {''.join(d)} and got:"
+                    f"\n```{', '.join(list(map(str, rolls)))}```"
+                    f"\n```Max:\t\t{max(rolls)}"
+                    f"\nMin:\t\t{min(rolls)}"
+                    f"\nSum:\t\t{sum(rolls)}"
+                    f"\nAverage:\t{sum(rolls) / len(rolls)}```"
+                )
                 if len(roll_string) <= 2000:
                     mention = ctx.author.mention
                     await ctx.send(roll_string)
@@ -149,9 +151,11 @@ class Rand(commands.Cog):
                 f"\n```{five_numbers_formatted} ({lucky_star_numbers_formatted})```"
             )
         else:
-            await ctx.send(f"❗ {mention} That's not a valid lottery game! "
-                           "You can choos from `powerball`, `megamillions`, "
-                           "and `euromillions`.")
+            await ctx.send(
+                f"❗ {mention} That's not a valid lottery game! "
+                "You can choose from `powerball`, `megamillions`, "
+                "and `euromillions`."
+            )
 
 
 def setup(client):
