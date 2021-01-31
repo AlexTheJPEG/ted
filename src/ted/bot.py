@@ -8,6 +8,8 @@ import discord
 from discord import Intents
 from discord.ext import commands, tasks
 
+from ted import __version__
+
 # Set up logging
 logger = logging.getLogger("discord")
 logger.setLevel(logging.DEBUG)
@@ -128,7 +130,7 @@ class Bot(commands.Bot):
         await self.change_presence(activity=discord.Game(next(self.status)))
 
 
-if __name__ == "__main__":
+def main():
     bot = Bot()
-    version = "idk anymore"
+    version = __version__
     bot.run(version)
