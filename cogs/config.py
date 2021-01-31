@@ -2,10 +2,10 @@ import asyncio
 import os
 import time
 
-from bot import read_json, write_json
-
 import discord
 from discord.ext import commands
+
+from bot import read_json, write_json
 
 
 class Config(commands.Cog):

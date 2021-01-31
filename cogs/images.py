@@ -1,11 +1,9 @@
 import os
 
-from PIL import Image, ImageChops, ImageEnhance, ImageOps
-
 import discord
-from discord.ext import commands
-
 import requests
+from discord.ext import commands
+from PIL import Image, ImageChops, ImageEnhance, ImageOps
 
 
 class Images(commands.Cog):

@@ -1,7 +1,6 @@
 from secrets import SystemRandom
 
 from discord.ext import commands
-
 from googletrans import Translator
 from googletrans.constants import LANGUAGES
 
