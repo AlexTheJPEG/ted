@@ -1,4 +1,5 @@
 {
   "token": "<insert token here>",
-  "prefix": "$"
+  "prefix": "$",
+  "blacklisted": [list of user ids]
 }

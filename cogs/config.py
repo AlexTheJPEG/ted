@@ -2,6 +2,9 @@ import asyncio
 import os
 import time
 
+from bot import read_json, write_json
+
+import discord
 from discord.ext import commands
 
 
@@ -52,6 +55,24 @@ class Config(commands.Cog):
     async def logout(self, ctx):
         await ctx.send("🚶🏾‍♂️ Aight, imma head out")
         await self.client.logout()
+
+    @commands.command()
+    @commands.is_owner()
+    async def blacklist(self, ctx, user: discord.Member):
+        self.client.blacklisted.append(user.id)
+        data = read_json("./settings.json")
+        data["blacklisted"].append(user.id)
+        write_json(data, "./settings.json")
+        await ctx.send(f"👍 **{user.name}** has been blacklisted.")
+
+    @commands.command()
+    @commands.is_owner()
+    async def unblacklist(self, ctx, user: discord.Member):
+        self.client.blacklisted.remove(user.id)
+        data = read_json("./settings.json")
+        data["blacklisted"].remove(user.id)
+        write_json(data, "./settings.json")
+        await ctx.send(f"👍 **{user.name}** is no longer blacklisted.")
 
 
 def setup(client):

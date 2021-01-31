@@ -38,6 +38,9 @@ class Bot(commands.Bot):
         self.token = self.settings["token"]
         self.prefix = self.settings["prefix"]
 
+        # Blacklisted users
+        self.blacklisted = self.settings["blacklisted"]
+
         # Ready messages and status change messages
         with open("./ready_responses.txt") as file:
             self.ready = [response.strip() for response in file.readlines()]
@@ -69,8 +72,12 @@ class Bot(commands.Bot):
         print(choice(self.ready))
 
     async def on_message(self, message):
-        # Make sure bot doesn't respond to itself
+        # Make sure bot doesn't respond to itself or other bots
         if message.author.id == self.user.id or message.author.bot:
+            return
+
+        # Make sure bot doesn't respond to blacklisted users
+        if message.author.id in self.blacklisted:
             return
 
         # Process the message for commands
